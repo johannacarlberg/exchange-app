@@ -1,7 +1,13 @@
 import React from 'react';
 
-export default class App extends React.Component {
-    render () {
-        return <p>Exchange App</p>
-    }
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        Exchange app
+      </div>
+    );
+  }
 }
+
+export default App;
