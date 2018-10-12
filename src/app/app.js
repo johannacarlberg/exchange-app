@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container } from './styles';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        Exchange app
-      </div>
+      <Container className="App">
+        Exchange app 💅
+      </Container>
     );
   }
 }
