@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'dist')))
 app.route('/api/rates/:baseRate').get((req, res) => {
   axios.request('https://api.exchangeratesapi.io/latest?base=' + req.params.baseRate)
   .then((response) => {
-    res.send({ rates: response.data.rates });
+      res.send({ rates: response.data.rates });
   })
   .catch((error) => {
     console.log(error);

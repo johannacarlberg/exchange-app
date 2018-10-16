@@ -5,14 +5,10 @@ import Exchange from './Components/Exchange/Exchange';
 class App extends Component {
   render(){
     return (
-      <div className="App">
-      <header>
-        <Headline>Exchange</Headline>  
-      </header> 
-      <Container>
+      <Container className="App">
+        <Headline>Exchange</Headline> 
         <Exchange />
       </Container>
-      </div> 
     );
   }
 }

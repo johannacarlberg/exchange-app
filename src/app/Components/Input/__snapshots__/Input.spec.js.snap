@@ -2,15 +2,15 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-bwzfXH hkrPvb"
+  className="sc-bwzfXH jDAJsC"
 >
   <i
-    className="sc-bxivhb cvITPI"
+    className="sc-bZQynM gZCdoJ"
   >
     +
   </i>
   <input
-    className="sc-htpNat ePpogx"
+    className="sc-EHOje gYzBNi"
     onChange={[MockFunction]}
     placeholder="0"
     value={10}
