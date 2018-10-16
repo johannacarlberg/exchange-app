@@ -6,6 +6,7 @@ import ToCurrency from '../ToCurrency/ToCurrency';
 import Swap from '../Swap/Swap';
 import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
+import { TopContainer, MiddleContainer, BottomContainer, ExchangeButton } from '../styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -38,6 +39,11 @@ export class connectedExchange extends React.Component {
         return body;
       };
 
+      onClick = function(e){
+        e.preventDefault();
+        console.log('clicked')
+      }
+
     requestRates = function requestRates(baseRate) {
       this.callApi(this.props.state.fromCurrency)
       .then(res => {
@@ -60,13 +66,20 @@ export class connectedExchange extends React.Component {
     render () {
         return (
             <div>
-                <FromCurrency fromCurrency={this.props.state.fromCurrency} />
-                <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency}/>
+              <TopContainer>
+              <FromCurrency fromCurrency={this.props.state.fromCurrency} />
+              </TopContainer>
+              <MiddleContainer>
+              <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency}/>
                 <Rate 
                     fromCurrency={this.props.state.fromCurrency} 
                     toCurrency={this.props.state.toCurrency} 
                     rate={this.state.rates[this.props.state.toCurrency]}/>
+              </MiddleContainer>
+              <BottomContainer>
                 <ToCurrency toCurrency={this.props.state.toCurrency} />
+                <ExchangeButton primary onClick={this.onClick} disabled={!this.state.fromCurrency.balance > 10}>Exchange</ExchangeButton>
+              </BottomContainer>
             </div>
         )
     }
