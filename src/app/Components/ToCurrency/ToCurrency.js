@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../../utils/actions";
 import Input from '../Input/Input';
 import { BalanceText } from './styles'
+import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/styles'
 
 const mapStateToProps = state => {
   return {state}
@@ -36,15 +37,20 @@ const ConnectedToCurrency = (props) => {
 
   return (
     <div>
-      <select onChange={handleChange} value={props.state.toCurrency}>
+      <ExchangeInputsContainer>
+          <SelectInputContainer>
+            <StyledSelectInput onChange={handleChange} value={props.state.toCurrency}>
         {
           CURRENCIES.map(currency =>
           <option key={currency.code} value={currency.code}>
             {currency.code}
           </option>
           )}
-      </select> 
+        </StyledSelectInput>
+          </SelectInputContainer>
       <Input value={props.state.toValue} onChange={updateInputValue} indicator='+' />
+      </ExchangeInputsContainer>
+
       <BalanceText overDraft={currency.balance < props.state.value}>Balance: {currency.symbol}{Number(currency.balance).toFixed(2)}</BalanceText>
     </div>
   )

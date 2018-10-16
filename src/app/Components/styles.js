@@ -28,29 +28,36 @@ export const SwapButton = styled.button`
 `;
 
 export const Button = styled.button`
-  background: ${props => props.primary ? "palevioletred" : "white"};
-  color: ${props => props.primary ? "white" : "palevioletred"};
+  background: ${props => props.primary ? "#eb008d" : "#fff"};
+  color: ${props => props.primary ? "#fff" : "#eb008d"};
   font-size: 1em;
-  margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  border: 2px solid #eb008d;
+  border-radius: 20px;
+  width: 80%;
+  display: block;
+  margin: auto;
+  box-shadow: 0 5px 5px rgba(235,0,141, 0.4);
 `;
 
 
 export const TopContainer = styled.div`
+  background: #fff;
   margin:0;
-  height: 150px
+  height: 100px
+  padding: 8px 16px;
 `
 
 export const BottomContainer = styled.div`
   background: #f4f5f7;
   margin: 0;
   padding-top: 30px;
-  height: 150px;
+  padding: 8px 16px;
 `
 export const MiddleContainer = styled.div`
-  top: 191px;
   display: inline-block;
-  position: fixed;
+  position: absolute;
+  top: 135px;
+  width: 100%;
+  text-align: center;
 `

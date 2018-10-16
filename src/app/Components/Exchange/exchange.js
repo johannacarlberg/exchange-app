@@ -37,9 +37,15 @@ export class connectedExchange extends React.Component {
         const response = await fetch('/api/rates/' + baseRate)
         const body = await response.json();
     
-        if (response.status !== 200) throw Error(body.message);
-    
-        return body;
+        // if (response.status !== 200) throw Error(body.message);
+       
+        if (response.status === 200) {
+          return body;
+        } else if ( response.status === 400) {
+          alert('not found');
+        } else {
+          alert('something went wrong');
+        }
       };
 
     requestRates = function requestRates(baseRate) {
@@ -47,6 +53,7 @@ export class connectedExchange extends React.Component {
       this.callApi(this.props.state.fromCurrency)
       .then(res => {
         console.log('rates', res.rates)
+        console.log('error', res.error)
         this.setState({ rates: res.rates})
       })
       .catch(err => console.log(err));

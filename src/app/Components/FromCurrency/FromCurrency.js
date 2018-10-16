@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { CURRENCIES } from '../../../utils/constants';
 import { setFromCurrency, setToCurrency, setFromValue, setToValue } from "../../../utils/actions";
 import Input from '../Input/Input';
-import { BalanceText } from './styles'
+import { BalanceText, ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './styles'
 
 const mapStateToProps = state => {
   return {state}
@@ -39,14 +39,18 @@ const FromCurrencyConnected = (props) => {
 
     return (
       <div>
-        <select onChange={handleChange} value={props.state.fromCurrency}>
-          {CURRENCIES.map(currency =>
-            <option key={currency.code} value={currency.code}>
-              {currency.code}
-            </option>
-            )}
-        </select>
-        <Input value={props.state.fromValue} onChange={updateInputValue} indicator='-'/>
+        <ExchangeInputsContainer>
+          <SelectInputContainer>
+            <StyledSelectInput onChange={handleChange} value={props.state.fromCurrency}>
+              {CURRENCIES.map(currency =>
+                <option key={currency.code} value={currency.code}>
+                  {currency.code}
+                </option>
+                )}
+            </StyledSelectInput>
+          </SelectInputContainer>
+          <Input value={props.state.fromValue} onChange={updateInputValue} indicator='-'/>
+        </ExchangeInputsContainer>
         <BalanceText insufficientCurrency={insufficientCurrency}>Balance: {props.state.currency.symbol}{Number(props.state.currency.balance).toFixed(2)}</BalanceText>
       </div>
     )
