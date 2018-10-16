@@ -1,16 +1,7 @@
-import React from 'react';
-import FromCurrency from './FromCurrency/FromCurrency';
-import ToCurrency from './ToCurrency/ToCurrency';
+import React, { Component } from 'react';
 
-export default class Exchange extends React.Component {
-
-
-    render () {
-        return (
-            <div>
-                <FromCurrency currency="GBP" value={0}/>
-                <ToCurrency currency="SKR" value={0} />
-            </div>
-        )
+export default class Exchange extends Component {
+    render(){
+        return <p>hi</p> 
     }
 }
