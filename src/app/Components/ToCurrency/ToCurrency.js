@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { CURRENCIES } from '../../../utils/constants';
 import { connect } from "react-redux";
 import { setToCurrency, setFromCurrency } from "../../../utils/actions";
-import { BalanceText, Input } from '../styles.js'
+import { BalanceText, Input, Indicator } from './styles'
 
 const mapStateToProps = state => {
   return {state}
@@ -41,6 +41,7 @@ const ConnectedToCurrency = (props) => {
           </option>
           )}
       </select>
+      <Indicator /> 
       <Input type="number" placeholder="0" onChange={updateInputValue}  name="currency"></Input>
       <BalanceText overDraft={currency.balance < props.state.value}>Balance: {currency.symbol}{Number(currency.balance).toFixed(2)}</BalanceText>
     </div>
