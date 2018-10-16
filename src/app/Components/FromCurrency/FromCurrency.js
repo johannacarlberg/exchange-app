@@ -46,7 +46,7 @@ const FromCurrencyConnected = (props) => {
             </option>
             )}
         </select>
-        <Input value={props.state.fromValue} onChange={updateInputValue} indicator='-'></Input>
+        <Input value={props.state.fromValue} onChange={updateInputValue} indicator='-'/>
         <BalanceText insufficientCurrency={insufficientCurrency}>Balance: {props.state.currency.symbol}{Number(props.state.currency.balance).toFixed(2)}</BalanceText>
       </div>
     )
