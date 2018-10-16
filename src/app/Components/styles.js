@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const BalanceText = styled.p`
-  font-size: 12px;
-  color: ${props => props.overDraft ? '#f44250' : '#535456'};
-`;
-
 export const LiveRates = styled.p`
   font-size: 14px;
   color: #4c6eb2;
@@ -14,15 +9,9 @@ export const LiveRates = styled.p`
   margin: 5px;
   padding: 5px;
   border: 2px solid #f4f5f7;
-`;
-
-export const Input = styled.input`
-  padding: 0.5em;
-  margin: 0.5em;
-  font-size: 25px;
-  color: "palevioletred";
-  background: none;
-  border: none;
+  &:before {
+    content: '\\21DD';
+  }
 `;
 
 export const SwapButton = styled.button`
@@ -32,7 +21,8 @@ export const SwapButton = styled.button`
   background: #ffffff;
   font-size: 15px;
   color: #4c6eb2;
-  &:before{
+
+  &:before {
     content: '\\2195';
   }
 `;
@@ -55,7 +45,8 @@ export const TopContainer = styled.div`
 
 export const BottomContainer = styled.div`
   background: #f4f5f7;
-  margin:0;
+  margin: 0;
+  padding-top: 30px;
   height: 150px;
 `
 export const MiddleContainer = styled.div`

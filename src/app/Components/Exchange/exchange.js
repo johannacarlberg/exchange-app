@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
+import ExchangeButton from '../ExchangeButton/ExchangeButton';
+
 import Swap from '../Swap/Swap';
 import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
-import { TopContainer, MiddleContainer, BottomContainer, ExchangeButton } from '../styles';
+import { TopContainer, MiddleContainer, BottomContainer } from '../styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -24,6 +26,7 @@ export class connectedExchange extends React.Component {
 
       componentDidMount() {
         this.requestRates(this.props.state.fromCurrency)
+        console.log('this.props.state.fromCurrency', this.props.state.fromCurrency)
       }
 
       timeout = setInterval(() => {
@@ -39,12 +42,8 @@ export class connectedExchange extends React.Component {
         return body;
       };
 
-      onClick = function(e){
-        e.preventDefault();
-        console.log('clicked')
-      }
-
     requestRates = function requestRates(baseRate) {
+      console.log('resuested new rates', baseRate)
       this.callApi(this.props.state.fromCurrency)
       .then(res => {
         console.log('rates', res.rates)
@@ -67,18 +66,20 @@ export class connectedExchange extends React.Component {
         return (
             <div>
               <TopContainer>
-              <FromCurrency fromCurrency={this.props.state.fromCurrency} />
+              <FromCurrency fromCurrency={this.props.state.fromCurrency} rate={this.state.rates[this.props.state.toCurrency]} />
               </TopContainer>
               <MiddleContainer>
-              <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency}/>
+              <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency} />
                 <Rate 
-                    fromCurrency={this.props.state.fromCurrency} 
-                    toCurrency={this.props.state.toCurrency} 
-                    rate={this.state.rates[this.props.state.toCurrency]}/>
+                  fromCurrency={this.props.state.fromCurrency} 
+                  toCurrency={this.props.state.toCurrency} 
+                  rate={this.state.rates[this.props.state.toCurrency]}/>
               </MiddleContainer>
               <BottomContainer>
-                <ToCurrency toCurrency={this.props.state.toCurrency} />
-                <ExchangeButton primary onClick={this.onClick} disabled={!this.state.fromCurrency.balance > 10}>Exchange</ExchangeButton>
+                <ToCurrency toCurrency={this.props.state.toCurrency} rate={this.state.rates[this.props.state.toCurrency]} />
+                <ExchangeButton 
+                  fromCurrency={this.props.state.fromCurrency} 
+                  toCurrency={this.props.state.toCurrency} />
               </BottomContainer>
             </div>
         )

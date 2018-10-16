@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BalanceText = styled.p`
   font-size: 12px;
-  color: ${props => props.overDraft ? '#f44250' : '#535456'};
+  color: '#535456';
 `;
 
 export const Input = styled.input`

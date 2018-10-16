@@ -20,9 +20,5 @@ export const Input = styled.input`
 export const Indicator = styled.i`
   display: inline-block;
   margin-left: 20px;
-
-  &:after{
-    font-size: 22px;
-    content: '-';
-  }
+  font-size: 22px;
 `;
