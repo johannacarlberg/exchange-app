@@ -30,10 +30,14 @@ export const SwapButton = styled.button`
   border-radius: 10px;
   border: 2px solid #f4f5f7;
   background: #ffffff;
+  font-size: 15px;
   color: #4c6eb2;
+  &:before{
+    content: '\\2195';
+  }
 `;
 
-export const ExchangeButton = styled.button`
+export const Button = styled.button`
   background: ${props => props.primary ? "palevioletred" : "white"};
   color: ${props => props.primary ? "white" : "palevioletred"};
   font-size: 1em;
