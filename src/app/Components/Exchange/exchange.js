@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
 import Rate from '../Rate/Rate';
+import Swap from '../Swap/Swap';
 
 const mapStateToProps = state => {
   return {state}
@@ -45,6 +46,7 @@ export class connectedExchange extends Component {
         return (
             <div>
                 <FromCurrency fromCurrency={this.props.state.fromCurrency} />
+                <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency}/>
                 <Rate 
                     fromCurrency={this.props.state.fromCurrency} 
                     toCurrency={this.props.state.toCurrency} 
