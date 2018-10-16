@@ -30,7 +30,7 @@ const FromCurrencyConnected = (props) => {
 
   function updateInputValue(event) {
     props.setFromValue(event.target.value);
-    props.setToValue(event.target.value * props.rate);
+    props.setToValue(Number(event.target.value * props.rate).toFixed(2));
    }
 
   props.state.currency = CURRENCIES.find(el=> {return el.code === props.state.fromCurrency}) 

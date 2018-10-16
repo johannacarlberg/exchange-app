@@ -5,6 +5,11 @@ export const BalanceText = styled.p`
   color: ${props => props.insufficientCurrency ? '#f44250' : '#535456'};
 `;
 
+export const InputContainer = styled.div`
+ display: inline-block;
+ float: right;
+`;
+
 export const Input = styled.input`
   padding: 0.5em;
   font-size: 25px;
