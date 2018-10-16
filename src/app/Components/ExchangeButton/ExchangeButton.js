@@ -17,9 +17,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 const ConnectedExchangeButton = (props) => {
-  console.log('toCurrency', props.state.toCurrency);
-  console.log('fromCurrency', props.state.fromCurrency);
-
   function onClick(e) {
     e.preventDefault();
     console.log('clicked')
