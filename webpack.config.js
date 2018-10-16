@@ -10,18 +10,24 @@ const config = {
     filename: 'bundle.js',
     publicPath: '/app/',
   },
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:5000'
+    }
+  },
   module: {
     rules: [
       {
-        test: /\.js?/,
+        test: /\.js$/,
         include: SRC_DIR,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         query: {
           presets: ['react', 'es2015', 'stage-2'],
           plugins: ['transform-runtime'],
-        },
-      },
-    ],
+        }
+      }
+   ],
   },
 };
 module.exports = config;
