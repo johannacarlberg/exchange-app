@@ -10,7 +10,7 @@ class App extends Component {
         <Headline>Exchange</Headline>  
       </header> 
       <Container>
-        Exchange app! 💅
+        Exchange app!
         <Exchange />
       </Container>
       </div> 
