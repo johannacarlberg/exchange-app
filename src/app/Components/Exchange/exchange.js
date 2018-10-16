@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-import FromCurrency from './FromCurrency/FromCurrency';
-import ToCurrency from './ToCurrency/ToCurrency';
+import FromCurrency from '../FromCurrency/FromCurrency';
+import ToCurrency from '../ToCurrency/ToCurrency';
 
 const mapStateToProps = state => {
   return {state}
