@@ -10,3 +10,9 @@ export const Container = styled.div`
   font-size: 40px;
   background: #F9F8F7;
 `;
+
+export const Headline = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`
