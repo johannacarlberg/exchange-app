@@ -8,7 +8,8 @@ injectGlobal`
 `
 export const Container = styled.div`
   position: relative;
-  max-width: 320px;
+  background: #fff;
+  max-width: 380px;
   margin: 0 auto;
   border-radius: 5px;
   font-family: "Futura New", Futura, Avenir, sans-serif;
@@ -18,5 +19,4 @@ export const Headline = styled.h1`
   font-size: 1rem;
   font-weight: 100;
   text-align: center;
-
 `

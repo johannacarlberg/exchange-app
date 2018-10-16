@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const BalanceText = styled.p`
   font-size: 12px;
-  color: ${props => props.insufficientCurrency ? '#f44250' : '#535456'};
+  color: ${props => props.insufficientCurrency ? '#eb008d' : '#535456'};
 `;
 
 export const InputContainer = styled.div`
-
+// todo do this 
+  &::before {
+    content: '-';
+  }
 `;
 
 export const ExchangeInputsContainer = styled.div`

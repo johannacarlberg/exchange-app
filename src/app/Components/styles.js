@@ -40,7 +40,6 @@ export const Button = styled.button`
   box-shadow: 0 5px 5px rgba(235,0,141, 0.4);
 `;
 
-
 export const TopContainer = styled.div`
   background: #fff;
   margin:0;
@@ -48,16 +47,16 @@ export const TopContainer = styled.div`
   padding: 8px 16px;
 `
 
-export const BottomContainer = styled.div`
-  background: #f4f5f7;
-  margin: 0;
-  padding-top: 30px;
-  padding: 8px 16px;
-`
 export const MiddleContainer = styled.div`
   display: inline-block;
   position: absolute;
   top: 135px;
   width: 100%;
   text-align: center;
+`
+
+export const BottomContainer = styled.div`
+  background: #f4f5f7;
+  margin: 0;
+  padding: 21px 16px;
 `
