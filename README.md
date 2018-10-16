@@ -39,7 +39,7 @@ This project is set up with styled components for modularised CSS.
 
 ## Deployments
 
-A deployment will be triggered upon merging into master. 
+A deployment will be triggered upon merging into master. This is setup with CircleCI.  
 
 *Link:* [http://exchange-apps.herokuapp.com/](http://exchange-apps.herokuapp.com/)
 
