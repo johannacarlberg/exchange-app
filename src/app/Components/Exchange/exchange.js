@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
-import Rate from '../Rate/Rate';
 import Swap from '../Swap/Swap';
+import Rate from '../Rate/Rate';
+import { POLL } from '../../../utils/constants';
 
 const mapStateToProps = state => {
   return {state}
 };
 
-export class connectedExchange extends Component {
+export class connectedExchange extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -23,6 +24,10 @@ export class connectedExchange extends Component {
       componentDidMount() {
         this.requestRates(this.props.state.fromCurrency)
       }
+
+      timeout = setInterval(() => {
+        this.requestRates(this.props.state.fromCurrency);
+      }, POLL);
 
       async callApi(baseRate){
         const response = await fetch('/api/rates/' + baseRate)
@@ -41,7 +46,17 @@ export class connectedExchange extends Component {
       })
       .catch(err => console.log(err));
     }
-     
+   
+      componentDidUpdate(prevProps) {
+        if (this.props.state.fromCurrency !== prevProps.state.fromCurrency) {
+          this.requestRates();
+          this.setState({ fromCurrency:this.props.state.fromCurrency, toCurrency:this.props.state.toCurrency })
+        }
+      }
+      componentWillUnmount() {
+        clearInterval(this.interval);
+      }
+
     render () {
         return (
             <div>
