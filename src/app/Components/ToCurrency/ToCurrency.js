@@ -50,7 +50,7 @@ const ConnectedToCurrency = (props) => {
           )}
         </StyledSelectInput>
           </SelectInputContainer>
-      <Input value={props.state.toValue} onChange={updateInputValue} indicator='+' />
+      <Input value={props.toValue} onChange={updateInputValue} indicator='+' />
       </ExchangeInputsContainer>
       <Balance overDraft={currency.balance < props.state.value} symbol={currency.symbol} balance={Number(currency.balance).toFixed(2)}/>
     </div>

@@ -4,8 +4,8 @@ import { CURRENCIES } from '../../../utils/constants';
 import { LiveRates } from './Rate.styles';
 
 const Rate = ({fromCurrency, toCurrency, rate}) => {
-  const from = CURRENCIES.find((currency) => { return currency.code === fromCurrency })
-  const to = CURRENCIES.find((currency) => { return currency.code === toCurrency })
+  const from = CURRENCIES.find((currency) => { return currency.code === fromCurrency });
+  const to = CURRENCIES.find((currency) => { return currency.code === toCurrency });
   return (<LiveRates>{` ${from.symbol}1 = ${to.symbol}${Number(rate).toFixed(4)}`}</LiveRates>)
 };
 
