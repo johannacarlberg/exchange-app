@@ -4,13 +4,8 @@ exports[`renders correctly 1`] = `
 <div
   className="sc-bdVaJa kjLCkx"
 >
-  <i
-    className="sc-htpNat gPdQJU"
-  >
-    +
-  </i>
   <input
-    className="sc-bwzfXH hhQCHt"
+    className="sc-bwzfXH IjkHZ"
     onChange={[MockFunction]}
     placeholder="0"
     value={10}
