@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { WHITE, BLUE, LIGHT_GRAY } from '../../../utils/styles.constants';
 
 export const Button = styled.button`
   border: none;
   border-radius: 10px;
-  border: 2px solid #f4f5f7;
-  background: #ffffff;
+  border: 2px solid ${LIGHT_GRAY};
+  background: ${WHITE};
+  color: ${BLUE};
   font-size: 15px;
-  color: #4c6eb2;
 
   &:before {
     content: '\\2195';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CURRENCIES } from '../../../utils/constants';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../../utils/actions";
 import Input from '../Input/Input';
 import Balance from '../Balance/Balance';

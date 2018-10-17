@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DARK_GRAY } from '../../../utils/styles.constants';
 
 export const InputContainer = styled.div`
 // TODO do this 
@@ -18,7 +19,7 @@ export const Input = styled.input`
   font-size: 2rem;
   outline: none;
   width: 200px;
-  color: #676767;
+  color: ${DARK_GRAY};
 `;
 
 export const Indicator = styled.i`
