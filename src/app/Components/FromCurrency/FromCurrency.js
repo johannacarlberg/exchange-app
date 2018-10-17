@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { CURRENCIES } from '../../../utils/constants';
 import { setFromCurrency, setToCurrency, setFromValue, setToValue } from "../../../utils/actions";
 import Input from '../Input/Input';
-import { BalanceText, ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './styles'
+import { BalanceText, ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './FromCurrency.styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -33,9 +33,8 @@ const FromCurrencyConnected = (props) => {
     props.setToValue(Number(event.target.value * props.rate).toFixed(2));
    }
 
-  props.state.currency = CURRENCIES.find(el=> {return el.code === props.state.fromCurrency}) 
+  props.state.currency = CURRENCIES.find(el=> {return el.code === props.state.fromCurrency});
   const insufficientCurrency = props.state.currency.balance < props.state.fromValue;
-
 
     return (
       <div>
@@ -54,7 +53,7 @@ const FromCurrencyConnected = (props) => {
         <BalanceText insufficientCurrency={insufficientCurrency}>Balance: {props.state.currency.symbol}{Number(props.state.currency.balance).toFixed(2)}</BalanceText>
       </div>
     )
-}
+};
 
 FromCurrencyConnected.propTypes = {    
   fromCurrency: PropTypes.string.isRequired,

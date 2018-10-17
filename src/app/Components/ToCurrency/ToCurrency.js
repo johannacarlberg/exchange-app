@@ -6,7 +6,7 @@ import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../
 import Input from '../Input/Input';
 import { BalanceText } from './ToCurrency.styles';
 // TODO REFACTOR AND PULL THIS OUT
-import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/styles';
+import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/FromCurrency.styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -34,7 +34,7 @@ const ConnectedToCurrency = (props) => {
     props.setFromValue(Number(event.target.value * 1/props.rate).toFixed(2));
    }
 
-  const currency = CURRENCIES.find(el=> {return el.code === props.state.toCurrency}) 
+  const currency = CURRENCIES.find(el=> {return el.code === props.state.toCurrency});
 
   return (
     <div>

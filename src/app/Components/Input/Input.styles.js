@@ -19,6 +19,9 @@ export const Input = styled.input`
   outline: none;
   width: 200px;
   color: #676767;
+  &::before {
+    content: '-';
+  }
 `;
 
 export const Indicator = styled.i`
