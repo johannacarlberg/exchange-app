@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
+import store from '../../../utils/store';
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
@@ -14,14 +15,14 @@ const mapStateToProps = state => {
 };
 
 export class connectedExchange extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           rates: [],
           fromCurrency: 'GBP',
           toCurrency: 'EUR'
         };
-      }
+    }
 
       componentDidMount() {
         this.requestRates(this.props.state.fromCurrency);

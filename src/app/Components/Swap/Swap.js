@@ -13,10 +13,9 @@ const mapDispatchToProps = dispatch => {
 const ConnectedSwap = (props) => {
   const {fromCurrency, toCurrency} = store.getState();
 
-  const swapCurrencies = () => {
-      props.swapCurrencies({from: fromCurrency, to: toCurrency});
-  };
-      return <Button onClick={swapCurrencies} />
+  const swapCurrencies = () => props.swapCurrencies({from: fromCurrency, to: toCurrency});
+
+  return <Button onClick={swapCurrencies} />
 };
 
 const Swap = connect(null, mapDispatchToProps)(ConnectedSwap);
