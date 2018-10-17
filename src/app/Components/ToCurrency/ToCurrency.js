@@ -4,8 +4,9 @@ import { CURRENCIES } from '../../../utils/constants';
 import { connect } from "react-redux";
 import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../../utils/actions";
 import Input from '../Input/Input';
-import { BalanceText } from './styles'
-import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/styles'
+import { BalanceText } from './ToCurrency.styles';
+// TODO REFACTOR AND PULL THIS OUT
+import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -54,7 +55,7 @@ const ConnectedToCurrency = (props) => {
       <BalanceText overDraft={currency.balance < props.state.value}>Balance: {currency.symbol}{Number(currency.balance).toFixed(2)}</BalanceText>
     </div>
   )
-}
+};
 
 ConnectedToCurrency.defaultProps = {
     value: 0

@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { injectGlobal } from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 
 injectGlobal`
   body {
     background: #fafafa;
   }
-`
+`;
+
 export const Container = styled.div`
   position: relative;
   background: #fff;
@@ -19,4 +19,4 @@ export const Headline = styled.h1`
   font-size: 1rem;
   font-weight: 100;
   text-align: center;
-`
+`;

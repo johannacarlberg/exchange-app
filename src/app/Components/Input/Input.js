@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Indicator, InputContainer } from '../FromCurrency/styles'
+import { Input, Indicator, InputContainer } from './Input.styles';
 
 const InputBox = (props) => {
   return (

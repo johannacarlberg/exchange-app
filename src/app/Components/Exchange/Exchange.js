@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
-
 import Swap from '../Swap/Swap';
 import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
-import { TopContainer, MiddleContainer, BottomContainer } from '../styles';
+import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.styles';
 
 const mapStateToProps = state => {
   return {state}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CURRENCIES } from '../../../utils/constants';
-import { LiveRates } from '../styles.js'
+import { LiveRates } from './Rate.styles';
 
 const Rate = ({fromCurrency, toCurrency, rate}) => {
   const from = CURRENCIES.find((currency) => { return currency.code === fromCurrency })

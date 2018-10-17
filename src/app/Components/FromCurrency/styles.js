@@ -5,13 +5,6 @@ export const BalanceText = styled.p`
   color: ${props => props.insufficientCurrency ? '#eb008d' : '#535456'};
 `;
 
-export const InputContainer = styled.div`
-// todo do this 
-  &::before {
-    content: '-';
-  }
-`;
-
 export const ExchangeInputsContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -37,20 +30,3 @@ export const SelectInputContainer = styled.div`
   }
 `;
 
-export const Input = styled.input`
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  border: none;
-  text-align: right;
-  background: none;
-  font-size: 2rem;
-  outline: none;
-  width: 200px;
-  color: #676767;
-`;
-
-export const Indicator = styled.i`
-
-`;

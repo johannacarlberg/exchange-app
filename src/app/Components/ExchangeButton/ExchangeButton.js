@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import { CURRENCIES } from '../../../utils/constants';
-import { setFromValue } from "../../../utils/actions";
-import { Button } from '../styles.js'
+import { setFromValue } from '../../../utils/actions';
+import { Button } from './ExchangeButton.styles';
 
 const mapStateToProps = state => {
   return {state}
