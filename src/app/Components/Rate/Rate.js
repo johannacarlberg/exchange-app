@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { CURRENCIES } from '../../../utils/constants';
 import { LiveRates } from './Rate.styles';
 
-const Rate = ({fromCurrency, toCurrency, rate}) => {
-  const from = CURRENCIES.find((currency) => { return currency.code === fromCurrency });
-  const to = CURRENCIES.find((currency) => { return currency.code === toCurrency });
-  return <LiveRates>{` ${from.symbol}1 = ${to.symbol}${Number(rate).toFixed(4)}`}</LiveRates>
+const Rate = ({from, to, rate}) => {
+  const fromCurrency = CURRENCIES.find(currency => currency.code === from);
+  const toCurrency = CURRENCIES.find(currency => currency.code === to);
+  return <LiveRates>{` ${fromCurrency.symbol}1 = ${toCurrency.symbol}${Number(rate).toFixed(4)}`}</LiveRates>
 };
 
 Rate.defaultProps = {
@@ -14,8 +14,8 @@ Rate.defaultProps = {
   };
   
   Rate.propTypes = {
-    fromCurrency: PropTypes.string.isRequired,
-    toCurrency: PropTypes.string.isRequired,
+    from: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
     rate: PropTypes.number
   };
 

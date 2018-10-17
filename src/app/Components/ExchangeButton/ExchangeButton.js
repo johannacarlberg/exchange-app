@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import store from '../../../utils/store';
-import { updateFromBalance, updateToBalance } from '../../../utils/actions';
+import { updateFromBalance, updateToBalance, updateStatement } from '../../../utils/actions';
 import { Button } from './ExchangeButton.styles';
 
 const mapStateToProps = state => {
@@ -14,20 +14,27 @@ const mapDispatchToProps = dispatch => {
   return {
     updateFromBalance: balances => dispatch(updateFromBalance(balances)),
     updateToBalance: balances => dispatch(updateToBalance(balances)),
-
+    updateStatement: statement => dispatch(updateStatement(statement)),
   };
 };
 
 const ConnectedExchangeButton = (props) => {
-  const {fromValue, fromBalance, toBalance, toValue} = store.getState();
+  const {fromValue, toValue, from, to} = store.getState();
+    console.log(props)
+  console.log( store.getState())
 
   function onClick(e) {
     e.preventDefault();
-    props.updateFromBalance({from: Number(fromBalance), to:  Number(fromValue)})
-    props.updateToBalance({from:  Number(toBalance), to:  Number(toValue)})
+    // const k = {currency: to.currency, newValue: (Number(from.balance)-Number(fromValue))}
+    //
+    // const k1 = {currency: from.currency, newValue: (Number(to.balance)+Number(toValue))}
+    // props.updateStatement({k, k1})
+
+    props.updateFromBalance({currency: from, from: Number(from.balance), to: Number(fromValue)})
+    props.updateToBalance({currency: to, from: Number(to.balance), to: Number(toValue)})
   }
 
-  const insufficientCurrency = fromBalance < fromValue;
+  const insufficientCurrency = from.balance < fromValue;
   const noAmount = !fromValue || fromValue <= 0;
 
   return <Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>;
@@ -35,7 +42,7 @@ const ConnectedExchangeButton = (props) => {
 
 
 ConnectedExchangeButton.propTypes = {    
-  fromCurrency: PropTypes.string.isRequired
+  from: PropTypes.string.isRequired
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);

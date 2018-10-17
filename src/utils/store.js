@@ -2,10 +2,9 @@ import { createStore } from 'redux';
 import reducer from './reducer';
 
 const initialState = {
-  fromCurrency: 'GBP',
-  fromBalance: 40,
-  toCurrency: 'EUR',
-  toBalance: 0,
+  from: {currency: 'GBP', balance: 40 },
+  to: {currency: 'EUR', balance: 0 },
+  statement: {'EUR':0, 'GBP': 40, 'USD': 0},
 };
 
 const store = createStore(

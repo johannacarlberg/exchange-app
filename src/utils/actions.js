@@ -1,4 +1,4 @@
-import {UPDATE_TO_BALANCE, UPDATE_FROM_BALANCE, SET_RATE, SET_TO_CURRENCY, SET_FROM_CURRENCY, SET_TO_BALANCE, SET_FROM_VALUE, SET_TO_VALUE, SET_FROM_BALANCE, SWAP_CURRENCIES, SWAP_BALANCES, SWAP_VALUES } from './constants';
+import {UPDATE_STATEMENT, UPDATE_TO_BALANCE, UPDATE_FROM_BALANCE, SET_RATE, SET_TO_CURRENCY, SET_FROM_CURRENCY, SET_TO_BALANCE, SET_FROM_VALUE, SET_TO_VALUE, SET_FROM_BALANCE, SWAP_CURRENCIES, SWAP_BALANCES, SWAP_VALUES } from './constants';
 
 export const setRate = rate => ({
   type: SET_RATE,
@@ -51,9 +51,9 @@ export const updateToBalance = balances => ({
   payload: balances
 });
 
-export const swapBalances = balances => ({
-  type: SWAP_BALANCES,
-  payload: balances
+export const updateStatement = currencies => ({
+  type: UPDATE_STATEMENT,
+  payload: currencies
 });
 
 export const swapValues = values => ({
