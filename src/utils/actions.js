@@ -1,4 +1,4 @@
-import {SET_TO_CURRENCY, SET_FROM_CURRENCY, SET_TO_BALANCE, SET_FROM_VALUE, SET_TO_VALUE, SET_FROM_BALANCE, SWAP_CURRENCIES } from './constants';
+import {SET_TO_CURRENCY, SET_FROM_CURRENCY, SET_TO_BALANCE, SET_FROM_VALUE, SET_TO_VALUE, SET_FROM_BALANCE, SWAP_CURRENCIES, SWAP_BALANCES, SWAP_VALUES } from './constants';
 
 export const setToCurrency = currency => ({
   type: SET_TO_CURRENCY,
@@ -33,4 +33,14 @@ export const setToValue = value => ({
 export const swapCurrencies = currencies => ({
   type: SWAP_CURRENCIES,
   payload: currencies
+});
+
+export const swapBalances = balances => ({
+  type: SWAP_BALANCES,
+  payload: balances
+});
+
+export const swapValues = values => ({
+  type: SWAP_VALUES,
+  payload: values
 });

@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const ConnectedToCurrency = (props) => {
-  const {fromCurrency, toCurrency, fromValue, toValue} = store.getState();
+  const {fromCurrency, toCurrency, toValue, toBalance} = store.getState();
 
   function handleChange(event) {
     props.setToCurrency(event.target.value);
@@ -38,7 +38,7 @@ const ConnectedToCurrency = (props) => {
     props.setFromValue(Number(event.target.value * 1/props.rate).toFixed(2));
    }
 
-  const currency = CURRENCIES.find(el=> {return el.code === props.state.toCurrency});
+  const currency = CURRENCIES.find(el=> {return el.code === toCurrency});
 
   return (
     <div>
@@ -55,7 +55,7 @@ const ConnectedToCurrency = (props) => {
           </SelectInputContainer>
       <Input value={toValue} onChange={updateInputValue} indicator='+' />
       </ExchangeInputsContainer>
-      <Balance overDraft={currency.balance < props.state.value} symbol={currency.symbol} balance={Number(currency.balance).toFixed(2)}/>
+      <Balance symbol={currency.symbol} balance={Number(toBalance).toFixed(2)}/>
     </div>
   )
 };

@@ -3,7 +3,9 @@ import reducer from './reducer';
 
 const initialState = {
   fromCurrency: 'GBP',
-  toCurrency: 'EUR'
+  fromBalance: 40,
+  toCurrency: 'EUR',
+  toBalance: 0,
 };
 
 const store = createStore(

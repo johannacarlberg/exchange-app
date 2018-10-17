@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const ConnectedExchangeButton = (props) => {
-  const {fromCurrency, fromValue} = store.getState();
+  const {fromCurrency, fromValue, fromBalance} = store.getState();
 
   function onClick(e) {
     e.preventDefault();
@@ -27,7 +27,7 @@ const ConnectedExchangeButton = (props) => {
   props.state.currency = CURRENCIES.find(el=> {return el.code === fromCurrency})
 
 
-  const insufficientCurrency = props.state.currency.balance < fromValue;
+  const insufficientCurrency = fromBalance < fromValue;
   const noAmount = !fromValue || fromValue <= 0;
 
   return <Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>;
