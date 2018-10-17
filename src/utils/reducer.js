@@ -2,6 +2,11 @@ import * as constants from './constants';
 
 const reducer = (state = '', action) => {
   switch (action.type) {
+    case constants.SET_RATE:
+      return {
+        ...state,
+        rate: action.payload
+      }
     case constants.SET_TO_CURRENCY:
       return {
         ...state,
@@ -49,6 +54,16 @@ const reducer = (state = '', action) => {
         ...state,
         fromValue: action.payload.to,
         toValue: action.payload.from
+      }
+    case constants.UPDATE_FROM_BALANCE:
+      return {
+        ...state,
+        fromBalance: action.payload.from - action.payload.to,
+      }
+    case constants.UPDATE_TO_BALANCE:
+      return {
+        ...state,
+        toBalance: action.payload.from + action.payload.to,
       }
     default:
       return state;

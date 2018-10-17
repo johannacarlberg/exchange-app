@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import store from '../../../utils/store';
+import { setRate } from "../../../utils/actions";
+
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
@@ -14,11 +16,17 @@ const mapStateToProps = state => {
   return {state}
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setRate: rate => dispatch(setRate(rate)),
+  };
+};
+
 export class connectedExchange extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          rates: [],
+          rate: 0,
           fromCurrency: 'GBP',
           toCurrency: 'EUR'
         };
@@ -52,9 +60,8 @@ export class connectedExchange extends React.Component {
       console.log('resuested new rates', baseRate)
       this.callApi(this.props.state.fromCurrency)
       .then(res => {
-        console.log('rates', res.rates);
-        console.log('error', res.error);
-        this.setState({ rates: res.rates})
+        this.setState({ rate: res.rates[this.props.state.toCurrency]})
+        this.props.setRate(res.rates[this.props.state.toCurrency]);
       })
       .catch(err => console.log(err));
     };
@@ -73,17 +80,17 @@ export class connectedExchange extends React.Component {
         return (
             <div>
               <TopContainer>
-              <FromCurrency fromCurrency={this.props.state.fromCurrency} rate={this.state.rates[this.props.state.toCurrency]} />
+              <FromCurrency fromCurrency={this.props.state.fromCurrency} rate={this.state.rate} />
               </TopContainer>
               <MiddleContainer>
               <Swap fromCurrency={this.props.state.fromCurrency} toCurrency={this.props.state.toCurrency} />
                 <Rate 
                   fromCurrency={this.props.state.fromCurrency} 
                   toCurrency={this.props.state.toCurrency} 
-                  rate={this.state.rates[this.props.state.toCurrency]}/>
+                  rate={this.state.rate}/>
               </MiddleContainer>
               <BottomContainer>
-                <ToCurrency toCurrency={this.props.state.toCurrency} rate={this.state.rates[this.props.state.toCurrency]} toValue={this.props.state.toValue} />
+                <ToCurrency toCurrency={this.props.state.toCurrency} rate={this.state.rate} toValue={this.props.state.toValue} />
                 <ExchangeButton 
                   fromCurrency={this.props.state.fromCurrency} 
                   toCurrency={this.props.state.toCurrency} />
@@ -93,6 +100,6 @@ export class connectedExchange extends React.Component {
     }
 }
 
-const Exchange = connect(mapStateToProps, null)(connectedExchange);
+const Exchange = connect(mapStateToProps, mapDispatchToProps)(connectedExchange);
 
 export default Exchange;
