@@ -1,4 +1,5 @@
 import styled, { injectGlobal } from 'styled-components';
+import { WHITE } from '../utils/styles.constants';
 
 injectGlobal`
   body {
@@ -8,7 +9,7 @@ injectGlobal`
 
 export const Container = styled.div`
   position: relative;
-  background: #fff;
+  background: ${WHITE};
   max-width: 380px;
   margin: 0 auto;
   border-radius: 5px;
