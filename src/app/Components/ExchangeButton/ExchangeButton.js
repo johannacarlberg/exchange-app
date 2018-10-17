@@ -24,11 +24,10 @@ const ConnectedExchangeButton = (props) => {
   props.state.currency = CURRENCIES.find(el=> {return el.code === props.state.fromCurrency}) 
 
 
-const insufficientCurrency = props.state.currency.balance < props.state.fromValue;
-const noAmount = !props.state.fromValue || props.state.fromValue <= 0;
+  const insufficientCurrency = props.state.currency.balance < props.state.fromValue;
+  const noAmount = !props.state.fromValue || props.state.fromValue <= 0;
 
-  return (<Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>
-    )
+  return <Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>;
 };
 
 
