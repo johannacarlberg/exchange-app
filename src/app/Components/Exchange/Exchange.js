@@ -24,7 +24,7 @@ export class connectedExchange extends React.Component {
       }
 
       componentDidMount() {
-        this.requestRates(this.props.state.fromCurrency)
+        this.requestRates(this.props.state.fromCurrency);
         console.log('this.props.state.fromCurrency', this.props.state.fromCurrency)
       }
 
@@ -33,7 +33,7 @@ export class connectedExchange extends React.Component {
       }, POLL);
 
       async callApi(baseRate){
-        const response = await fetch('/api/rates/' + baseRate)
+        const response = await fetch('/api/rates/' + baseRate);
         const body = await response.json();
     
         // if (response.status !== 200) throw Error(body.message);
@@ -51,8 +51,8 @@ export class connectedExchange extends React.Component {
       console.log('resuested new rates', baseRate)
       this.callApi(this.props.state.fromCurrency)
       .then(res => {
-        console.log('rates', res.rates)
-        console.log('error', res.error)
+        console.log('rates', res.rates);
+        console.log('error', res.error);
         this.setState({ rates: res.rates})
       })
       .catch(err => console.log(err));

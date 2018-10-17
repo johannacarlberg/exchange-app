@@ -13,7 +13,7 @@ const ConnectedSwap = (props) => {
   const swapCurrencies = () => {
       props.swapCurrencies({from: props.fromCurrency, to: props.toCurrency});
   };
-      return(<Button onClick={swapCurrencies}></Button>)
+      return(<Button onClick={swapCurrencies} />)
 };
 
 const Swap = connect(null, mapDispatchToProps)(ConnectedSwap);
