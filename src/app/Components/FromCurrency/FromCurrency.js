@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import { CURRENCIES } from '../../../utils/constants';
-import { setFromCurrency, setToCurrency, setFromValue, setToValue } from "../../../utils/actions";
+import { setFromCurrency, setToCurrency, setFromValue, setToValue } from '../../../utils/actions';
 import Input from '../Input/Input';
-import { BalanceText, ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './FromCurrency.styles';
+import Balance from '../Balance/Balance';
+import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './FromCurrency.styles';
 
 const mapStateToProps = state => {
   return {state}
@@ -50,7 +51,7 @@ const FromCurrencyConnected = (props) => {
           </SelectInputContainer>
           <Input value={props.state.fromValue} onChange={updateInputValue} indicator='-'/>
         </ExchangeInputsContainer>
-        <BalanceText insufficientCurrency={insufficientCurrency}>Balance: {props.state.currency.symbol}{Number(props.state.currency.balance).toFixed(2)}</BalanceText>
+        <Balance insufficientCurrency={insufficientCurrency} symbol={props.state.currency.symbol} balance={Number(props.state.currency.balance).toFixed(2)} />
       </div>
     )
 };

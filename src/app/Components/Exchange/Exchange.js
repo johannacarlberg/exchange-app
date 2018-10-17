@@ -56,7 +56,7 @@ export class connectedExchange extends React.Component {
         this.setState({ rates: res.rates})
       })
       .catch(err => console.log(err));
-    }
+    };
    
       componentDidUpdate(prevProps) {
         if (this.props.state.fromCurrency !== prevProps.state.fromCurrency) {
