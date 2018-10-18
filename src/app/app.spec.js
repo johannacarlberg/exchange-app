@@ -8,7 +8,11 @@ describe('Shallow rendering Rate component', () => {
   let store;
   let container;
 
-  const initialState = {};
+  const initialState = {
+    from: 'GBP',
+    to: 'EUR',
+    rate: 1.2,
+  };
 
   beforeEach(() => {
     store = mockStore(initialState);

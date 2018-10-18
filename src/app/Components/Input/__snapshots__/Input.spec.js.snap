@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Snapshot - renders correctly 1`] = `
+<div
+  className="sc-bdVaJa hKAetY"
+>
+  <span>
+    +
+  </span>
+  <div
+    className="sc-bwzfXH ecxpMR"
+    width="40px"
+  >
+    <input
+      className="sc-htpNat bUMdcJ"
+      onChange={[MockFunction]}
+      placeholder="0"
+      value="23"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders correctly 1`] = `
 <div
   className="sc-bdVaJa hKAetY"
