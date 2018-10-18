@@ -10,13 +10,13 @@ const Rate = ({ from, to, rate }) => {
 };
 
 Rate.defaultProps = {
-  rate: 0
+  rate: 0,
 };
 
 Rate.propTypes = {
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  rate: PropTypes.number
+  rate: PropTypes.number,
 };
 
 export default Rate;

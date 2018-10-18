@@ -7,7 +7,7 @@ import {
   setToCurrency,
   setFromCurrency,
   setToValue,
-  setFromValue
+  setFromValue,
 } from '../../../utils/actions';
 import Input from '../Input/Input';
 import Balance from '../Balance/Balance';
@@ -38,7 +38,7 @@ const ConnectedToCurrency = (props) => {
 
   function updateInputValue(event) {
     props.setToValue(event.target.value);
-    props.setFromValue(Number(event.target.value * 1/props.rate).toFixed(2));
+    props.setFromValue(Number(event.target.value * 1 / props.rate).toFixed(2));
   }
 
   const currency = CURRENCIES.find(exchange => exchange.code === to.currency);
