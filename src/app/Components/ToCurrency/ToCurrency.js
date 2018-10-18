@@ -41,7 +41,7 @@ const ConnectedToCurrency = (props) => {
     props.setFromValue(Number(event.target.value * 1/props.rate).toFixed(2));
    }
 
-  const currency = CURRENCIES.find(currency => currency.code === to.currency);
+  const currency = CURRENCIES.find(exchange => exchange.code === to.currency);
 
   return (
     <div>
@@ -50,30 +50,28 @@ const ConnectedToCurrency = (props) => {
           <SelectInputContainer>
             <StyledSelectInput onChange={handleChange} value={to.currency}>
         {
-          CURRENCIES.map(currency =>
-          <option key={currency.code} value={currency.code}>
-            {currency.code}
+          CURRENCIES.map(exchange =>
+          <option key={exchange.code} value={exchange.code}>
+            {exchange.code}
           </option>
           )}
         </StyledSelectInput>
           </SelectInputContainer>
       <Input value={toValue} onChange={updateInputValue} indicator='+' />
       </ExchangeInputsContainer>
-      <Balance symbol={currency.symbol} balance={to.balance}/>
+      <Balance symbol={currency.symbol} balance={to.balance} />
     </div>
   )
 };
 
 ConnectedToCurrency.defaultProps = {
-    value: 0,
-    to: {},
-  };
-  
-  ConnectedToCurrency.propTypes = {
-    to: PropTypes.oneOfType([PropTypes.object]),
-    value: PropTypes.number,
-  };
+  rate: 0,
+};
 
-  const ToCurrency = connect(mapStateToProps, mapDispatchToProps)(ConnectedToCurrency);
+ConnectedToCurrency.propTypes = {
+  rate: PropTypes.number,
+};
 
-  export default ToCurrency;
+const ToCurrency = connect(mapStateToProps, mapDispatchToProps)(ConnectedToCurrency);
+
+export default ToCurrency;
