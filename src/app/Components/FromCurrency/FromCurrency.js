@@ -32,20 +32,22 @@ const FromCurrencyConnected = (props) => {
   } = store.getState();
 
   const handleChange = (event) => {
-    props.setFromCurrency({ currency: event.target.value, balance: statement[event.target.value] });
+    const selectedValue = event.target.value;
+    props.setFromCurrency({ currency: selectedValue, balance: statement[selectedValue] });
 
     if (fromValue) {
       props.setToValue(Number(fromValue * props.rate).toFixed(2));
     }
 
-    if (event.target.value === to.currency) {
-      props.setToCurrency({currency: from.currency, balance: statement[from.currency]});
+    if (selectedValue === to.currency) {
+      props.setToCurrency({ currency: from.currency, balance: statement[from.currency] });
     }
   };
 
   const updateInputValue = (event) => {
-    props.setFromValue(event.target.value);
-    props.setToValue(Number(event.target.value * props.rate).toFixed(2));
+    const inputValue = event.target.value;
+    props.setFromValue(inputValue);
+    props.setToValue(Number(inputValue * props.rate).toFixed(2));
   };
 
   const currency = CURRENCIES.find(exchange => exchange.code === from.currency);
