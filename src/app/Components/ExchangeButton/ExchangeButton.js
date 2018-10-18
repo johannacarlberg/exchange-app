@@ -12,7 +12,6 @@ const mapDispatchToProps = dispatch => ({
   updateFromBalance: balances => dispatch(updateFromBalance(balances)),
   updateToBalance: balances => dispatch(updateToBalance(balances)),
   updateStatement: balances => dispatch(updateStatement(balances)),
-
 });
 
 const ConnectedExchangeButton = (props) => {
@@ -33,7 +32,7 @@ const ConnectedExchangeButton = (props) => {
       currency: from,
       fromBalance,
     });
-    
+
     props.updateToBalance({
       currency: to,
       toBalance,

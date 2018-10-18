@@ -46,7 +46,7 @@ const FromCurrencyConnected = (props) => {
     if (selectedValue === to.currency) {
       props.setToCurrency({
         currency: from.currency,
-        balance: statement[from.currency]
+        balance: statement[from.currency],
       });
     }
   };
@@ -63,7 +63,7 @@ const FromCurrencyConnected = (props) => {
     <div>
       <ExchangeInputsContainer>
         <Select onChange={handleChange} currency={from} />
-        <Input value={fromValue} onChange={updateInputValue} indicator="-" />
+        <Input value={fromValue} onChange={updateInputValue} indicator={'\u2212'} />
       </ExchangeInputsContainer>
       <Balance
         insufficientCurrency={from.balance < fromValue}

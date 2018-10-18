@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import { DARK_GRAY } from '../../../utils/styles.constants';
 
 export const Container = styled.div`
-  height: 40px;
+  display: flex;
+  align-items: center;
 `;
 
 export const InputContainer = styled.div`
   width: ${props => props.width}; 
+  max-width: 200px;
   display: block;  
 `;
 
@@ -22,9 +24,4 @@ export const Input = styled.input`
   font-size: 2rem;
   outline: none;
   color: ${DARK_GRAY};
-`;
-
-export const Indicator = styled.i`
-  padding-top:20px;
-  display: inline-block;
 `;

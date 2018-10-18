@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Input,
-  Indicator,
   InputContainer,
   Container,
 } from './Input.styles';
@@ -11,9 +10,9 @@ const InputBox = ({ value, indicator, onChange }) => {
   const dynamicWidth = value ? `${value.length * 20}px` : '20px';
   return (
     <Container>
-      {value && <Indicator>{indicator}</Indicator> }
+      {value && <span>{indicator}</span>}
       <InputContainer width={dynamicWidth}>
-        <Input onChange={onChange} value={value} placeholder="0"/>
+        <Input onChange={onChange} value={value} placeholder="0" />
       </InputContainer>
     </Container>
   );

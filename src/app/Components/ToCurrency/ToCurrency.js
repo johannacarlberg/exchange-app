@@ -59,7 +59,7 @@ const ConnectedToCurrency = (props) => {
     <div>
       <ExchangeInputsContainer>
         <Select onChange={handleChange} currency={to} />
-        <Input value={toValue} onChange={updateInputValue} indicator="+" />
+        <Input value={toValue} onChange={updateInputValue} indicator={'\u002B'} />
       </ExchangeInputsContainer>
       <Balance symbol={currency.symbol} balance={to.balance} />
     </div>
