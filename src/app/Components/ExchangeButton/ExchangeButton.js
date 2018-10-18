@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { CURRENCIES } from '../../../utils/constants';
-import { setFromValue } from '../../../utils/actions';
+import store from '../../../utils/store';
+import { updateFromBalance, updateToBalance } from '../../../utils/actions';
 import { Button } from './ExchangeButton.styles';
 
 const mapStateToProps = state => {
@@ -12,28 +12,29 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      setFromValue: fromValue => dispatch(setFromValue(fromValue)),
+    updateFromBalance: balances => dispatch(updateFromBalance(balances)),
+    updateToBalance: balances => dispatch(updateToBalance(balances)),
   };
 };
 
 const ConnectedExchangeButton = (props) => {
+  const {fromValue, toValue, from, to} = store.getState();
+
   function onClick(e) {
     e.preventDefault();
-    console.log('clicked')
+    props.updateFromBalance({currency: from, from: Number(from.balance), to: Number(fromValue)})
+    props.updateToBalance({currency: to, from: Number(to.balance), to: Number(toValue)})
   }
-  props.state.currency = CURRENCIES.find(el=> {return el.code === props.state.fromCurrency}) 
 
+  const insufficientCurrency = from.balance < fromValue;
+  const noAmount = !fromValue || fromValue <= 0;
 
-const insufficientCurrency = props.state.currency.balance < props.state.fromValue;
-const noAmount = !props.state.fromValue || props.state.fromValue <= 0;
-
-  return (<Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>
-    )
+  return <Button primary onClick={onClick} disabled={insufficientCurrency||noAmount}>Exchange</Button>;
 };
 
 
 ConnectedExchangeButton.propTypes = {    
-  fromCurrency: PropTypes.string.isRequired
+  from: PropTypes.string.isRequired
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);

@@ -2,13 +2,23 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-bdVaJa kjLCkx"
+  className="sc-bdVaJa fZgsiK"
 >
-  <input
-    className="sc-bwzfXH IjkHZ"
-    onChange={[MockFunction]}
-    placeholder="0"
-    value={10}
-  />
+  <i
+    className="sc-bxivhb jqAmDQ"
+  >
+    +
+  </i>
+  <div
+    className="sc-bwzfXH lkPSlC"
+    width="40px"
+  >
+    <input
+      className="sc-htpNat bUMdcJ"
+      onChange={[MockFunction]}
+      placeholder="0"
+      value="23"
+    />
+  </div>
 </div>
 `;

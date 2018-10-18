@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CURRENCIES } from '../../../utils/constants';
 import { connect } from 'react-redux';
+import { CURRENCIES } from '../../../utils/constants';
+import store from '../../../utils/store';
 import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../../utils/actions";
 import Input from '../Input/Input';
 import Balance from '../Balance/Balance';
@@ -9,9 +10,7 @@ import Balance from '../Balance/Balance';
 // TODO REFACTOR AND PULL THIS OUT
 import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/FromCurrency.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -23,10 +22,14 @@ const mapDispatchToProps = dispatch => {
 };
 
 const ConnectedToCurrency = (props) => {
+  const {from, to, toValue, statement} = store.getState();
+
   function handleChange(event) {
-    props.setToCurrency(event.target.value);
-    if(event.target.value === props.state.fromCurrency){
-      props.setFromCurrency(props.state.toCurrency);
+    props.setToCurrency({currency: event.target.value, balance: statement[event.target.value]});
+    if(toValue) props.setFromValue(Number(toValue * props.rate).toFixed(2));
+
+    if(event.target.value === from.currency){
+      props.setFromCurrency({currency: to.currency, balance: statement[to.currency]});
     }
   }
 
@@ -35,13 +38,14 @@ const ConnectedToCurrency = (props) => {
     props.setFromValue(Number(event.target.value * 1/props.rate).toFixed(2));
    }
 
-  const currency = CURRENCIES.find(el=> {return el.code === props.state.toCurrency});
+  const currency = CURRENCIES.find(currency => currency.code === to.currency);
 
   return (
     <div>
+
       <ExchangeInputsContainer>
           <SelectInputContainer>
-            <StyledSelectInput onChange={handleChange} value={props.state.toCurrency}>
+            <StyledSelectInput onChange={handleChange} value={to.currency}>
         {
           CURRENCIES.map(currency =>
           <option key={currency.code} value={currency.code}>
@@ -50,19 +54,20 @@ const ConnectedToCurrency = (props) => {
           )}
         </StyledSelectInput>
           </SelectInputContainer>
-      <Input value={props.toValue} onChange={updateInputValue} indicator='+' />
+      <Input value={toValue} onChange={updateInputValue} indicator='+' />
       </ExchangeInputsContainer>
-      <Balance overDraft={currency.balance < props.state.value} symbol={currency.symbol} balance={Number(currency.balance).toFixed(2)}/>
+      <Balance symbol={currency.symbol} balance={to.balance}/>
     </div>
   )
 };
 
 ConnectedToCurrency.defaultProps = {
-    value: 0
+    value: 0,
+    to: {},
   };
   
   ConnectedToCurrency.propTypes = {
-    toCurrency: PropTypes.string.isRequired,
+    to: PropTypes.oneOfType([PropTypes.object]),
     value: PropTypes.number,
   };
 

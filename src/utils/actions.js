@@ -1,36 +1,41 @@
-import {SET_TO_CURRENCY, SET_FROM_CURRENCY, SET_TO_BALANCE, SET_FROM_VALUE, SET_TO_VALUE, SET_FROM_BALANCE, SWAP_CURRENCIES } from './constants';
+import * as constants from './constants';
+
+export const setRate = rate => ({
+  type: constants.SET_RATE,
+  payload: rate
+});
 
 export const setToCurrency = currency => ({
-  type: SET_TO_CURRENCY,
+  type: constants.SET_TO_CURRENCY,
   payload: currency
 });
 
 export const setFromCurrency = currency => ({
-  type: SET_FROM_CURRENCY,
+  type: constants.SET_FROM_CURRENCY,
   payload: currency
 });
 
-export const setToBalance = balance => ({
-  type: SET_TO_BALANCE,
-  payload: balance
-});
-
-export const setFromBalance = balance => ({
-  type: SET_FROM_BALANCE,
-  payload: balance
-});
-
 export const setFromValue = value => ({
-  type: SET_FROM_VALUE,
+  type: constants.SET_FROM_VALUE,
   payload: value
 });
 
 export const setToValue = value => ({
-  type: SET_TO_VALUE,
+  type: constants.SET_TO_VALUE,
   payload: value
 });
 
 export const swapCurrencies = currencies => ({
-  type: SWAP_CURRENCIES,
+  type: constants.SWAP_CURRENCIES,
   payload: currencies
+});
+
+export const updateFromBalance = balances => ({
+  type: constants.UPDATE_FROM_BALANCE,
+  payload: balances
+});
+
+export const updateToBalance = balances => ({
+  type: constants.UPDATE_TO_BALANCE,
+  payload: balances
 });

@@ -17,7 +17,7 @@ export const MiddleContainer = styled.div`
 `;
 
 export const BottomContainer = styled.div`
-  background: ${LIGHT_GRAY};
+  background: ${ LIGHT_GRAY };
   margin: 0;
   padding: 21px 16px;
 `;

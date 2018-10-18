@@ -1,49 +1,80 @@
-import { SET_TO_CURRENCY } from './constants';
-import { SET_TO_BALANCE } from './constants';
-import { SET_FROM_CURRENCY } from './constants';
-import { SET_FROM_VALUE} from './constants';
-import { SET_TO_VALUE} from './constants';
-import { SET_FROM_BALANCE } from './constants';
-import { SWAP_CURRENCIES } from './constants';
+import * as constants from './constants';
 
 const reducer = (state = '', action) => {
   switch (action.type) {
-    case SET_TO_CURRENCY:
+    case constants.SET_RATE:
       return {
         ...state,
-        toCurrency: action.payload
+        rate: action.payload
       }
-    case SET_TO_BALANCE:
+    case constants.SET_TO_CURRENCY:
+      return {
+        ...state,
+        to: {
+          ...state.to,
+          currency: action.payload.currency,
+          balance: action.payload.balance,
+        }
+      }
+    case constants.SET_TO_BALANCE:
       return {
         ...state,
         toBalance: action.payload
       }
-    case SET_FROM_CURRENCY:
+    case constants.SET_FROM_CURRENCY:
       return {
         ...state,
-        fromCurrency: action.payload
+        from: {
+          ...state.from,
+          currency: action.payload.currency,
+          balance: action.payload.balance,
+        }
       }
-    case SET_FROM_VALUE:
+    case constants.SET_FROM_VALUE:
       return {
         ...state,
         fromValue: action.payload
       }
-    case SET_TO_VALUE:
+    case constants.SET_TO_VALUE:
       return {
         ...state,
         toValue: action.payload
       }
-    case SET_FROM_BALANCE:
+    case constants.SET_FROM_BALANCE:
       return {
         ...state,
         fromBalance: action.payload
       }
-    case SWAP_CURRENCIES:
+    case constants.SWAP_CURRENCIES:
       return {
-      ...state,
-      fromCurrency: action.payload.to,
-      toCurrency: action.payload.from
-    }
+        ...state,
+        to: {
+          ...state.to,
+          currency: action.payload.from.currency,
+          balance: action.payload.from.balance,
+        },
+        from: {
+          ...state.from,
+          currency: action.payload.to.currency,
+          balance: action.payload.to.balance,
+        }
+      }
+    case constants.UPDATE_FROM_BALANCE:
+      return {
+        ...state,
+        from: {
+          ...state.from,
+          balance: action.payload.from - action.payload.to,
+        }
+      }
+    case constants.UPDATE_TO_BALANCE:
+      return {
+        ...state,
+        to: {
+          ...state.to,
+          balance: action.payload.from + action.payload.to,
+        }
+      }
     default:
       return state;
   }

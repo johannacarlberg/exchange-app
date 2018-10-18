@@ -1,8 +1,6 @@
 import React from 'react';
 import { BalanceText } from './Balance.styles';
 
-const Balance = ({overDraft, symbol, balance, insufficientCurrency}) => {
-  return(<BalanceText overDraft={overDraft} insufficientCurrency={insufficientCurrency}> Balance: {symbol}{balance}</BalanceText>)
-};
+const Balance = ({symbol, balance, insufficientCurrency}) => <BalanceText insufficientCurrency={insufficientCurrency}> Balance: {symbol}{Number(balance).toFixed(2)}</BalanceText>;
 
 export default Balance;
