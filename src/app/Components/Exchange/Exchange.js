@@ -51,7 +51,6 @@ export class ConnectedExchange extends React.Component {
   };
 
   componentDidUpdate(prevProps) {
-    console.log('this.props.state', this.props.state);
     if (this.props.state.from.currency !== prevProps.state.from.currency) {
       this.requestRates();
       this.setState({
