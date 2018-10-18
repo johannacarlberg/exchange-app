@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Indicator, InputContainer, Container } from './Input.styles';
+import {
+  Input,
+  Indicator,
+  InputContainer,
+  Container
+} from './Input.styles';
 
 const InputBox = ({ value, indicator, onChange }) => {
   const dynamicWidth = value ? `${value.length * 20}px` : '20px';
