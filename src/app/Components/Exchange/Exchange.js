@@ -13,11 +13,9 @@ import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.style
 
 const mapStateToProps = state => ({ state });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setRate: rate => dispatch(setRate(rate)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  setRate: rate => dispatch(setRate(rate)),
+});
 
 export class ConnectedExchange extends React.Component {
   constructor(props) {
