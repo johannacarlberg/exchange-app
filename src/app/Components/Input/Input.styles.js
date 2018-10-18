@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { DARK_GRAY } from '../../../utils/styles.constants';
 
-
 export const Container = styled.div`
   height: 40px;
 `;
@@ -9,9 +8,6 @@ export const Container = styled.div`
 export const InputContainer = styled.div`
   width: ${props => props.width}; 
   display: block;  
-  &::before {
-    content: ${props => props.sign}
-  }
 `;
 
 export const Input = styled.input`
@@ -25,7 +21,6 @@ export const Input = styled.input`
   background: none;
   font-size: 2rem;
   outline: none;
-
   color: ${DARK_GRAY};
 `;
 

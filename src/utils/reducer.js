@@ -59,12 +59,6 @@ const reducer = (state = '', action) => {
           balance: action.payload.to.balance,
         }
       }
-    // case constants.SWAP_VALUES:
-    //   return {
-    //     ...state,
-    //     toValue: action.payload.from,
-    //     fromValue: action.payload.to,
-    //   }
     case constants.UPDATE_FROM_BALANCE:
       return {
         ...state,
@@ -81,15 +75,6 @@ const reducer = (state = '', action) => {
           balance: action.payload.from + action.payload.to,
         }
       }
-    // case constants.UPDATE_STATEMENT:
-    //   return {
-    //     ...state,
-    //     statement: {
-    //       ...state,
-    //       [action.payload.k1.currency]: action.payload.k1.newValue,
-    //       [action.payload.k.currency]: action.payload.k.newValue,
-    //     }
-    //   }
     default:
       return state;
   }
