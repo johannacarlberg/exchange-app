@@ -24,7 +24,7 @@ export class connectedExchange extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      from: {currency: 'GBP'},
+      from: { currency: 'GBP' },
       to: { currency: 'EUR' },
     };
   }

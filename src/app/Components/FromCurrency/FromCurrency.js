@@ -24,24 +24,29 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const FromCurrencyConnected = (props) => {
-  const { from, to, fromValue, statement } = store.getState();
+  const {
+    from,
+    to,
+    fromValue,
+    statement,
+  } = store.getState();
 
-  function handleChange(event) {
-    props.setFromCurrency({currency: event.target.value, balance: statement[event.target.value]});
+  const handleChange = (event) => {
+    props.setFromCurrency({ currency: event.target.value, balance: statement[event.target.value] });
 
-    if(fromValue) {
+    if (fromValue) {
       props.setToValue(Number(fromValue * props.rate).toFixed(2));
     }
 
-    if(event.target.value === to.currency) {
+    if (event.target.value === to.currency) {
       props.setToCurrency({currency: from.currency, balance: statement[from.currency]});
     }
-  } 
+  };
 
-  function updateInputValue(event) {
+  const updateInputValue = (event) => {
     props.setFromValue(event.target.value);
     props.setToValue(Number(event.target.value * props.rate).toFixed(2));
-   }
+  };
 
   const currency = CURRENCIES.find(exchange => exchange.code === from.currency);
 
@@ -69,7 +74,11 @@ const FromCurrencyConnected = (props) => {
 };
 
 FromCurrencyConnected.propTypes = {
-  rate: PropTypes.number
+  rate: PropTypes.number,
+  setToValue: PropTypes.func.isRequired,
+  setFromValue: PropTypes.func.isRequired,
+  setFromCurrency: PropTypes.func.isRequired,
+  setToCurrency: PropTypes.func.isRequired,
 };
 
 FromCurrencyConnected.defaultProps = {

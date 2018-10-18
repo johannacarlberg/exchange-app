@@ -16,19 +16,21 @@ const mapStateToProps = state => state;
 const ConnectedSwap = (props) => {
   const { from, to } = store.getState();
 
-  const swapCurrencies = () => {
+  const onclick = () => {
     props.swapCurrencies({ from, to });
 
-    if(props.fromValue) {
+    if (props.fromValue) {
       props.setToValue(Number(props.fromValue * 1 / props.rate).toFixed(2));
     }
-  }
-  return <Button onClick={swapCurrencies} />
+  };
+  return <Button onClick={onclick} />
 };
 
 ConnectedSwap.propTypes = {
   rate: PropTypes.number,
   fromValue: PropTypes.string,
+  swapCurrencies: PropTypes.func.isRequired,
+  setToValue: PropTypes.func.isRequired,
 };
 
 ConnectedSwap.defaultProps = {
