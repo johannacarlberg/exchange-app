@@ -28,11 +28,11 @@ export class ConnectedExchange extends React.Component {
 
   componentDidMount() {
     this.requestRates(this.props.state.from.currency);
-  }
 
-  timeout = setInterval(() => {
-    this.requestRates(this.props.state.from.currency);
-  }, POLL);
+    setInterval(() => {
+      this.requestRates(this.props.state.from.currency);
+    }, POLL);
+  }
 
   async callApi(baseRate){
     const response = await fetch('/api/rates/' + baseRate);
@@ -43,6 +43,7 @@ export class ConnectedExchange extends React.Component {
   };
 
   requestRates = () => {
+    console.log('called')
     this.callApi(this.props.state.from.currency || 'GBP')
       .then(res => {
         this.props.setRate(res.rates[this.props.state.to.currency]);

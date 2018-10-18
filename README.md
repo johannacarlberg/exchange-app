@@ -48,7 +48,8 @@ A deployment will be triggered upon merging into master. This is setup with Circ
 ### Next Steps
 - Breaking out the reducers and actions per component
 - Error handling
+- Input validation
 - Error logs
 - Acceptance Tests
 - Accessibility Tests
-- Unit Tests in addition to snapshot tests
+- Set up code coverage report

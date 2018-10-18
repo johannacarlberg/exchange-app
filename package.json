@@ -61,6 +61,10 @@
     ]
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/config/jest.config.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest.config.js",
+    "transformIgnorePatterns": ["<rootDir>/node_modules/"],
+    "transform": {
+      "^.+\\.(js|jsx)?$": "babel-jest"
+    }
   }
 }
