@@ -9,9 +9,7 @@ import Input from '../Input/Input';
 import Balance from '../Balance/Balance';
 import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from './FromCurrency.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
