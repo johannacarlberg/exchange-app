@@ -33,7 +33,7 @@ const FromCurrencyConnected = (props) => {
       props.setToValue(Number(fromValue * props.rate).toFixed(2));
     }
 
-    if(event.target.value === to.currency){
+    if(event.target.value === to.currency) {
       props.setToCurrency({currency: from.currency, balance: statement[from.currency]});
     }
   } 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BalanceText } from './Balance.styles';
+import BalanceText from './Balance.styles';
 
 const Balance = ({ symbol, balance, insufficientCurrency }) => (
   <BalanceText insufficientCurrency={insufficientCurrency}>
