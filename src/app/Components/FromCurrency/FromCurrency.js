@@ -59,8 +59,7 @@ const FromCurrencyConnected = (props) => {
     )
 };
 
-FromCurrencyConnected.propTypes = {    
-  from: PropTypes.string.isRequired,
+FromCurrencyConnected.propTypes = {
   rate: PropTypes.number
 };
 

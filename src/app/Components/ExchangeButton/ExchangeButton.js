@@ -32,7 +32,6 @@ const ConnectedExchangeButton = (props) => {
 
 
 ConnectedExchangeButton.propTypes = {
-  from: PropTypes.string.isRequired
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);

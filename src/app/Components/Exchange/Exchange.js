@@ -67,7 +67,7 @@ export class connectedExchange extends React.Component {
         return (
             <div>
               <TopContainer>
-              <FromCurrency from={this.props.state.from.currency} rate={this.props.state.rate} />
+              <FromCurrency rate={this.props.state.rate} />
               </TopContainer>
               <MiddleContainer>
               <Swap from={this.props.state.from.currency} to={this.props.state.to.currency} toValue={this.props.state.toValue} fromValue={this.props.state.fromValue} rate={this.props.state.rate} />
@@ -78,9 +78,7 @@ export class connectedExchange extends React.Component {
               </MiddleContainer>
               <BottomContainer>
                 <ToCurrency to={this.props.state.to.currency} rate={this.props.state.rate} toValue={this.props.state.toValue} />
-                <ExchangeButton
-                  from={this.props.state.from.currency}
-                  to={this.props.state.to.currency} />
+                <ExchangeButton />
               </BottomContainer>
             </div>
         )
