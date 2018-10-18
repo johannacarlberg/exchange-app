@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { WHITE, BLUE, LIGHT_GRAY } from '../../../utils/styles.constants';
 
-export const LiveRates = styled.p`
+const LiveRates = styled.p`
   font-size: 14px;
   color: ${BLUE};
   display: inline-block;
@@ -14,3 +14,5 @@ export const LiveRates = styled.p`
     content: '\\21DD';
   }
 `;
+
+export default LiveRates;
