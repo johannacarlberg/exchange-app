@@ -9,8 +9,7 @@ jobs:
           command: npm install
       - run:
           name: Run Build
-          command: npm run start
+          command: npm run build:prod
       - run:
           name: Run Unit Tests
           command: npm run test
-
