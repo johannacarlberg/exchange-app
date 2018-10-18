@@ -56,6 +56,8 @@ A deployment will be triggered upon merging into master. This is setup with Circ
 - Input validation
 - Error logs
 - Acceptance Tests
-- Accessibility Tests
+- Accessibility Tests, ARIA attributes, WCAG
+- Meta tags for SEO, ie description, keywords
+- Response design / Mobile 
 - Set up code coverage report
 - Aligning with a brand style-guide (typography, colour palette, grids, etc.)
