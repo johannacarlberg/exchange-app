@@ -3,7 +3,7 @@ import { LIGHT_GRAY } from '../utils/styles.constants';
 
 injectGlobal`
   body {
-    min-width: 440px;
+    min-width: 320px;
   }
 `;
 
@@ -11,7 +11,7 @@ export const Container = styled.div`
   position: relative;
   background: ${LIGHT_GRAY};
   border: 1px solid #bbb;
-  max-width: 400px;
+  width: 320px;
   margin: 100px auto 0;
   border-radius: 20px;
   font-family: "Futura New", Futura, Avenir, sans-serif;
