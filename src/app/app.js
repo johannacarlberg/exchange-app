@@ -4,7 +4,7 @@ import Exchange from './Components/Exchange/Exchange';
 
 const App = () => (
   <Container className="App">
-    <Headline>Exchange</Headline>
+    <Headline> Exchange </Headline>
     <Exchange />
   </Container>
 );
