@@ -11,8 +11,6 @@ import {
 } from '../../../utils/actions';
 import Input from '../Input/Input';
 import Balance from '../Balance/Balance';
-
-// TODO REFACTOR AND PULL THIS OUT
 import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from '../FromCurrency/FromCurrency.styles';
 
 const mapStateToProps = state => state;
@@ -25,21 +23,28 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const ConnectedToCurrency = (props) => {
-  const { from, to, toValue, statement } = store.getState();
+  const {
+    from,
+    to,
+    toValue,
+    statement,
+  } = store.getState();
 
-  function handleChange(event) {
-    props.setToCurrency({currency: event.target.value, balance: statement[event.target.value]});
-    if(toValue) props.setFromValue(Number(toValue * props.rate).toFixed(2));
+  const handleChange = (event) => {
+    const selectedValue = event.target.value;
+    props.setToCurrency({ currency: selectedValue, balance: statement[selectedValue] });
+    if (toValue) props.setFromValue(Number(toValue * props.rate).toFixed(2));
 
-    if(event.target.value === from.currency){
-      props.setFromCurrency({currency: to.currency, balance: statement[to.currency]});
+    if (selectedValue === from.currency){
+      props.setFromCurrency({ currency: to.currency, balance: statement[to.currency] });
     }
-  }
+  };
 
-  function updateInputValue(event) {
-    props.setToValue(event.target.value);
-    props.setFromValue(Number(event.target.value * 1 / props.rate).toFixed(2));
-  }
+  const updateInputValue = (event) => {
+    const inputValue = event.target.value;
+    props.setToValue(inputValue);
+    props.setFromValue(Number(inputValue * 1 / props.rate).toFixed(2));
+  };
 
   const currency = CURRENCIES.find(exchange => exchange.code === to.currency);
 
@@ -62,12 +67,16 @@ const ConnectedToCurrency = (props) => {
   );
 };
 
-ConnectedToCurrency.defaultProps = {
-  rate: 0,
-};
-
 ConnectedToCurrency.propTypes = {
   rate: PropTypes.number,
+  setFromValue: PropTypes.func.isRequired,
+  setToValue: PropTypes.func.isRequired,
+  setFromCurrency: PropTypes.func.isRequired,
+  setToCurrency: PropTypes.func.isRequired,
+};
+
+ConnectedToCurrency.defaultProps = {
+  rate: 0,
 };
 
 const ToCurrency = connect(mapStateToProps, mapDispatchToProps)(ConnectedToCurrency);

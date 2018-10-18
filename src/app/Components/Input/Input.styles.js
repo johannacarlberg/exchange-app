@@ -27,4 +27,4 @@ export const Input = styled.input`
 export const Indicator = styled.i`
   padding-top:20px;
   display: inline-block;
-`
+`;

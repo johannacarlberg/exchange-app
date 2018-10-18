@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { setRate } from '../../../utils/actions';
 import FromCurrency from '../FromCurrency/FromCurrency';
@@ -10,21 +11,17 @@ import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
 import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => ({ state });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setRate: rate => dispatch(setRate(rate)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  setRate: rate => dispatch(setRate(rate)),
+});
 
-export class connectedExchange extends React.Component {
+export class ConnectedExchange extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      from: {currency: 'GBP'},
+      from: { currency: 'GBP' },
       to: { currency: 'EUR' },
     };
   }
@@ -87,6 +84,10 @@ export class connectedExchange extends React.Component {
   }
 }
 
-const Exchange = connect(mapStateToProps, mapDispatchToProps)(connectedExchange);
+ConnectedExchange.propTypes = {
+  setRate: PropTypes.func.isRequired,
+};
+
+const Exchange = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchange);
 
 export default Exchange;
