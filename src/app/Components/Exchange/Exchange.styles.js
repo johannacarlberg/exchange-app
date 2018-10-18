@@ -11,13 +11,12 @@ export const TopContainer = styled.div`
 export const MiddleContainer = styled.div`
   display: inline-block;
   position: absolute;
-  top: 135px;
+  top: 150px;
   width: 100%;
   text-align: center;
 `;
 
 export const BottomContainer = styled.div`
-  background: ${LIGHT_GRAY};
   margin: 0;
   padding: 21px 16px;
 `;
