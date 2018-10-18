@@ -1,18 +1,19 @@
 import styled, { injectGlobal } from 'styled-components';
-import { WHITE } from '../utils/styles.constants';
+import { LIGHT_GRAY } from '../utils/styles.constants';
 
 injectGlobal`
   body {
-    background: #fafafa;
+    min-width: 440px;
   }
 `;
 
 export const Container = styled.div`
   position: relative;
-  background: ${WHITE};
-  max-width: 380px;
-  margin: 0 auto;
-  border-radius: 5px;
+  background: ${LIGHT_GRAY};
+  border: 1px solid #bbb;
+  max-width: 400px;
+  margin: 100px auto 0;
+  border-radius: 20px;
   font-family: "Futura New", Futura, Avenir, sans-serif;
 `;
 
@@ -20,6 +21,7 @@ export const Headline = styled.h1`
   font-size: 1rem;
   font-weight: 100;
   text-align: center;
+  padding: 16px 0 0;
 `;
 
 export const ExchangeInputsContainer = styled.div`

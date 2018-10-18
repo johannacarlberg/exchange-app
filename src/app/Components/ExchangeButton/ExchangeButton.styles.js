@@ -12,6 +12,7 @@ const Button = styled.button`
   display: block;
   margin: auto;
   box-shadow: 0 5px 5px rgba(235,0,141, 0.4);
+  cursor: pointer;
 `;
 
 export default Button;
