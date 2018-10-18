@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { setRate } from '../../../utils/actions';
 import FromCurrency from '../FromCurrency/FromCurrency';
@@ -10,9 +11,7 @@ import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
 import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
