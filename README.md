@@ -1,12 +1,17 @@
 # Exchange App
 
-This repo contains an exchange application that polls live currency rates and converts
+This repo contains an exchange application that polls live currency rates and converts any transaction you wish to make
 
 ## Quick start
 
 ```
 npm install
 ```
+Start the server (default PORT is 5000)
+```
+node server.js
+```
+In a new tab, run
 ```
 npm start
 ```
@@ -39,7 +44,7 @@ This project is set up with styled components for modularised CSS.
 
 ## Deployments
 
-A deployment will be triggered upon merging into master. This is setup with CircleCI.  
+A deployment will be triggered upon merging into master. This is setup with CircleCI and will only deploy if all tests pass.  
 
 *Link:* [http://exchange-apps.herokuapp.com/](http://exchange-apps.herokuapp.com/)
 
@@ -48,7 +53,9 @@ A deployment will be triggered upon merging into master. This is setup with Circ
 ### Next Steps
 - Breaking out the reducers and actions per component
 - Error handling
+- Input validation
 - Error logs
 - Acceptance Tests
 - Accessibility Tests
-- Unit Tests in addition to snapshot tests
+- Set up code coverage report
+- Aligning with a brand style-guide (typography, colour palette, grids, etc.)

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Snapshot - renders correctly 1`] = `
 <div
   className="sc-bdVaJa hKAetY"
 >
   <span>
-    +
+    -
   </span>
   <div
     className="sc-bwzfXH ecxpMR"

@@ -24,7 +24,6 @@ const ConnectedExchangeButton = (props) => {
 
   function onClick(e) {
     e.preventDefault();
-
     const fromBalance = Number(from.balance) - Number(fromValue);
     const toBalance = Number(to.balance) + Number(toValue);
 
