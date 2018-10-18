@@ -2,15 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import store from '../../../utils/store';
 import { swapCurrencies,setToValue, setFromValue } from '../../../utils/actions';
-import { Button } from './Swap.styles';
+import Button from './Swap.styles';
 
-const mapDispatchToProps = dispatch => {
-  return {
-    swapCurrencies: currencies => dispatch(swapCurrencies(currencies)),
-    setFromValue: fromValue => dispatch(setFromValue(fromValue)),
-    setToValue: toValue => dispatch(setToValue(toValue)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  swapCurrencies: currencies => dispatch(swapCurrencies(currencies)),
+  setFromValue: fromValue => dispatch(setFromValue(fromValue)),
+  setToValue: toValue => dispatch(setToValue(toValue)),
+});
 
 const mapStateToProps = state => state;
 

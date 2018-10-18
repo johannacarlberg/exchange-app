@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { WHITE, BLUE, LIGHT_GRAY } from '../../../utils/styles.constants';
 
-export const Button = styled.button`
+const Button = styled.button`
   border: none;
   border-radius: 10px;
   border: 2px solid ${LIGHT_GRAY};
@@ -13,3 +13,5 @@ export const Button = styled.button`
     content: '\\2195';
   }
 `;
+
+export default Button;

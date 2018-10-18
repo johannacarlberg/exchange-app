@@ -17,14 +17,12 @@ import { ExchangeInputsContainer, SelectInputContainer, StyledSelectInput } from
 
 const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setToCurrency: toCurrency => dispatch(setToCurrency(toCurrency)),
-    setFromCurrency: fromCurrency => dispatch(setFromCurrency(fromCurrency)),
-    setFromValue: fromValue => dispatch(setFromValue(fromValue)),
-    setToValue: toValue => dispatch(setToValue(toValue)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  setToCurrency: toCurrency => dispatch(setToCurrency(toCurrency)),
+  setFromCurrency: fromCurrency => dispatch(setFromCurrency(fromCurrency)),
+  setFromValue: fromValue => dispatch(setFromValue(fromValue)),
+  setToValue: toValue => dispatch(setToValue(toValue)),
+});
 
 const ConnectedToCurrency = (props) => {
   const {from, to, toValue, statement} = store.getState();
