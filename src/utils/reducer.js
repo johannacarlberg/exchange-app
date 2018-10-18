@@ -59,6 +59,12 @@ const reducer = (state = '', action) => {
           balance: action.payload.to.balance,
         }
       }
+    // case constants.SWAP_VALUES:
+    //   return {
+    //     ...state,
+    //     toValue: action.payload.from,
+    //     fromValue: action.payload.to,
+    //   }
     case constants.UPDATE_FROM_BALANCE:
       return {
         ...state,

@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import store from '../../../utils/store';
-import { setRate } from "../../../utils/actions";
-
+import { setRate } from '../../../utils/actions';
 import FromCurrency from '../FromCurrency/FromCurrency';
 import ToCurrency from '../ToCurrency/ToCurrency';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
@@ -33,7 +31,6 @@ export class connectedExchange extends React.Component {
 
       componentDidMount() {
         this.requestRates(this.props.state.from.currency);
-        console.log('this.props.state.fromCurrency', this.props.state.from.currency)
       }
 
       timeout = setInterval(() => {
@@ -44,20 +41,11 @@ export class connectedExchange extends React.Component {
         const response = await fetch('/api/rates/' + baseRate);
         const body = await response.json();
 
-        // if (response.status !== 200) throw Error(body.message);
-
-        if (response.status === 200) {
-          return body;
-        } else if ( response.status === 400) {
-          alert('not found');
-        } else {
-          alert('something went wrong');
-        }
+        if (response.status !== 200) throw Error(body.message);
+        return body;
       };
 
-    requestRates = function requestRates(baseRate) {
-      console.log('resuested new rates', baseRate)
-
+    requestRates = () => {
       this.callApi(this.props.state.from.currency)
       .then(res => {
         this.props.setRate(res.rates[this.props.state.to.currency]);
@@ -82,7 +70,7 @@ export class connectedExchange extends React.Component {
               <FromCurrency from={this.props.state.from.currency} rate={this.props.state.rate} />
               </TopContainer>
               <MiddleContainer>
-              <Swap from={this.props.state.from.currency} to={this.props.state.to.currency} />
+              <Swap from={this.props.state.from.currency} to={this.props.state.to.currency} toValue={this.props.state.toValue} fromValue={this.props.state.fromValue} rate={this.props.state.rate} />
                 <Rate
                   from={this.props.state.from.currency}
                   to={this.props.state.to.currency}
