@@ -10,9 +10,7 @@ import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
 import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
