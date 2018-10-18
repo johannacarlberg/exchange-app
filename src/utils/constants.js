@@ -6,8 +6,6 @@ export const SET_FROM_VALUE = 'SET_FROM_VALUE';
 export const SET_TO_VALUE = 'SET_TO_VALUE';
 export const SET_FROM_BALANCE = 'SET_FROM_BALANCE';
 export const SWAP_CURRENCIES = 'SWAP_CURRENCIES';
-// export const SWAP_BALANCES = 'SWAP_BALANCES';
-// export const SWAP_VALUES = 'SWAP_VALUES';
 export const UPDATE_FROM_BALANCE = 'UPDATE_FROM_BALANCE';
 export const UPDATE_TO_BALANCE = 'UPDATE_TO_BALANCE';
 
