@@ -64,7 +64,7 @@ const reducer = (state = '', action) => {
         ...state,
         from: {
           ...state.from,
-          balance: action.payload.from - action.payload.to,
+          balance: action.payload.fromBalance,
         },
       };
     case constants.UPDATE_TO_BALANCE:
@@ -72,7 +72,16 @@ const reducer = (state = '', action) => {
         ...state,
         to: {
           ...state.to,
-          balance: action.payload.from + action.payload.to,
+          balance: action.payload.toBalance,
+        },
+      };
+    case constants.UPDATE_STATEMENT:
+      return {
+        ...state,
+        statement: {
+          ...state.statement,
+          [action.payload.fromCurrency]: action.payload.fromBalance,
+          [action.payload.toCurrency]: action.payload.toBalance,
         },
       };
     default:

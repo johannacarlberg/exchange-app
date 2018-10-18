@@ -43,7 +43,7 @@ export class ConnectedExchange extends React.Component {
   };
 
   requestRates = () => {
-    this.callApi(this.props.state.from.currency)
+    this.callApi(this.props.state.from.currency || 'GBP')
       .then(res => {
         this.props.setRate(res.rates[this.props.state.to.currency]);
       })
@@ -51,6 +51,7 @@ export class ConnectedExchange extends React.Component {
   };
 
   componentDidUpdate(prevProps) {
+    console.log('this.props.state', this.props.state);
     if (this.props.state.from.currency !== prevProps.state.from.currency) {
       this.requestRates();
       this.setState({

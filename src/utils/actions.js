@@ -39,3 +39,8 @@ export const updateToBalance = balances => ({
   type: constants.UPDATE_TO_BALANCE,
   payload: balances,
 });
+
+export const updateStatement = balances => ({
+  type: constants.UPDATE_STATEMENT,
+  payload: balances,
+});
