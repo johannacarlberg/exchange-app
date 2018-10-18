@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { CURRENCIES } from '../../../utils/constants';
 import store from '../../../utils/store';
-import { setToCurrency, setFromCurrency, setToValue, setFromValue } from "../../../utils/actions";
+import {
+  setToCurrency,
+  setFromCurrency,
+  setToValue,
+  setFromValue
+} from '../../../utils/actions';
 import Input from '../Input/Input';
 import Balance from '../Balance/Balance';
 
