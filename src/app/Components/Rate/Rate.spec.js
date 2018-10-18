@@ -19,11 +19,11 @@ describe('Shallow rendering Rate component', () => {
     container = shallow(<Rate store={store} from="GBP" to="EUR" rate={1.2} />);
   });
 
-  it('+++ render the connected(SMART) component', () => {
+  it('render the Rate component', () => {
     expect(container.length).toEqual(1);
   });
 
-  it('+++ check Prop matches with initialState', () => {
-    expect(container.prop('from')).toEqual(initialState.from);
+  it('Check that Prop matches with initialState', () => {
+    expect(container.prop('output')).toEqual(initialState.output);
   });
 });
