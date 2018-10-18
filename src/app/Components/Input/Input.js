@@ -29,4 +29,3 @@ InputBox.propTypes = {
 };
 
 export default InputBox;
-
