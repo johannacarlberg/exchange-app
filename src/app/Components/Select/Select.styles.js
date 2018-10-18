@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const ExchangeInputsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const StyledSelectInput = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;

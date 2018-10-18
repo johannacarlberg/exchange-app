@@ -23,8 +23,16 @@ const ConnectedExchangeButton = (props) => {
 
   function onClick(e) {
     e.preventDefault();
-    props.updateFromBalance({ currency: from, from: Number(from.balance), to: Number(fromValue) });
-    props.updateToBalance({ currency: to, from: Number(to.balance), to: Number(toValue) });
+    props.updateFromBalance({
+      currency: from,
+      from: Number(from.balance),
+      to: Number(fromValue),
+    });
+    props.updateToBalance({
+      currency: to,
+      from: Number(to.balance),
+      to: Number(toValue),
+    });
   }
 
   const insufficientCurrency = from.balance < fromValue;

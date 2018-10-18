@@ -6,7 +6,11 @@ import LiveRates from './Rate.styles';
 const Rate = ({ from, to, rate }) => {
   const fromCurrency = CURRENCIES.find(exchange => exchange.code === from);
   const toCurrency = CURRENCIES.find(exchange => exchange.code === to);
-  return <LiveRates>{` ${fromCurrency.symbol}1 = ${toCurrency.symbol}${Number(rate).toFixed(4)}`}</LiveRates>
+  return (
+    <LiveRates>
+      {` ${fromCurrency.symbol}1 = ${toCurrency.symbol}${Number(rate).toFixed(4)}`}
+    </LiveRates>
+  );
 };
 
 Rate.defaultProps = {

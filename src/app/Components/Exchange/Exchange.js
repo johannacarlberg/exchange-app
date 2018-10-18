@@ -53,7 +53,10 @@ export class ConnectedExchange extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.state.from.currency !== prevProps.state.from.currency) {
       this.requestRates();
-      this.setState({ fromCurrency:this.props.state.from.currency, toCurrency:this.props.state.to.currency })
+      this.setState({
+        fromCurrency: this.props.state.from.currency,
+        toCurrency:this.props.state.to.currency
+      })
     }
   }
   componentWillUnmount() {
@@ -64,17 +67,27 @@ export class ConnectedExchange extends React.Component {
     return (
       <div>
         <TopContainer>
-          <FromCurrency from={this.props.state.from.currency} rate={this.props.state.rate} />
+          <FromCurrency
+            from={this.props.state.from.currency}
+            rate={this.props.state.rate} />
         </TopContainer>
         <MiddleContainer>
-          <Swap from={this.props.state.from.currency} to={this.props.state.to.currency} toValue={this.props.state.toValue} fromValue={this.props.state.fromValue} rate={this.props.state.rate} />
+          <Swap
+            from={this.props.state.from.currency}
+            to={this.props.state.to.currency}
+            toValue={this.props.state.toValue}
+            fromValue={this.props.state.fromValue}
+            rate={this.props.state.rate} />
           <Rate
             from={this.props.state.from.currency}
             to={this.props.state.to.currency}
             rate={this.props.state.rate}/>
         </MiddleContainer>
         <BottomContainer>
-          <ToCurrency to={this.props.state.to.currency} rate={this.props.state.rate} toValue={this.props.state.toValue} />
+          <ToCurrency
+            to={this.props.state.to.currency}
+            rate={this.props.state.rate}
+            toValue={this.props.state.toValue} />
           <ExchangeButton
             from={this.props.state.from.currency}
             to={this.props.state.to.currency} />

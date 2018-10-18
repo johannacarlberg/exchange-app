@@ -4,7 +4,7 @@ import {
   Input,
   Indicator,
   InputContainer,
-  Container
+  Container,
 } from './Input.styles';
 
 const InputBox = ({ value, indicator, onChange }) => {
