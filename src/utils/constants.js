@@ -13,11 +13,11 @@ export const POLL = '10000';
 
 export const CURRENCIES = [{
   code: 'GBP',
-  symbol: '\u00A3'
+  symbol: '\u00A3',
 }, {
   code: 'EUR',
-  symbol: '\u20AC'
+  symbol: '\u20AC',
 }, {
   code: 'USD',
-  symbol: '\u0024'
-}]
+  symbol: '\u0024',
+}];

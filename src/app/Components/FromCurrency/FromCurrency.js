@@ -13,7 +13,7 @@ import {
 import Input from '../Input/Input';
 import Select from '../Select/Select';
 import Balance from '../Balance/Balance';
-import { ExchangeInputsContainer } from './FromCurrency.styles';
+import { ExchangeInputsContainer } from '../../app.styles';
 
 const mapStateToProps = state => state;
 
