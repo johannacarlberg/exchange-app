@@ -7,7 +7,7 @@ This repo contains an exchange application that polls live currency rates and co
 ```
 npm install
 ```
-Start the server (default PORT is 5000)
+Start the backend (default PORT 5000)
 ```
 node server.js
 ```
