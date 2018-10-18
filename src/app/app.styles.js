@@ -21,3 +21,8 @@ export const Headline = styled.h1`
   font-weight: 100;
   text-align: center;
 `;
+
+export const ExchangeInputsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

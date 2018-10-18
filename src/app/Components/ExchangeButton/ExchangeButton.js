@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import store from '../../../utils/store';
-import { updateFromBalance, updateToBalance } from '../../../utils/actions';
+import { updateFromBalance, updateToBalance, updateStatement } from '../../../utils/actions';
 import Button from './ExchangeButton.styles';
 
 const mapStateToProps = state => state;
@@ -11,6 +11,7 @@ const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
   updateFromBalance: balances => dispatch(updateFromBalance(balances)),
   updateToBalance: balances => dispatch(updateToBalance(balances)),
+  updateStatement: balances => dispatch(updateStatement(balances)),
 });
 
 const ConnectedExchangeButton = (props) => {
@@ -23,8 +24,26 @@ const ConnectedExchangeButton = (props) => {
 
   function onClick(e) {
     e.preventDefault();
-    props.updateFromBalance({ currency: from, from: Number(from.balance), to: Number(fromValue) });
-    props.updateToBalance({ currency: to, from: Number(to.balance), to: Number(toValue) });
+
+    const fromBalance = Number(from.balance) - Number(fromValue);
+    const toBalance = Number(to.balance) + Number(toValue);
+
+    props.updateFromBalance({
+      currency: from,
+      fromBalance,
+    });
+
+    props.updateToBalance({
+      currency: to,
+      toBalance,
+    });
+
+    props.updateStatement({
+      fromCurrency: from.currency,
+      fromBalance,
+      toCurrency: to.currency,
+      toBalance,
+    });
   }
 
   const insufficientCurrency = from.balance < fromValue;
@@ -40,6 +59,7 @@ const ConnectedExchangeButton = (props) => {
 ConnectedExchangeButton.propTypes = {
   updateToBalance: PropTypes.func.isRequired,
   updateFromBalance: PropTypes.func.isRequired,
+  updateStatement: PropTypes.func.isRequired,
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);

@@ -5,8 +5,8 @@ const reducer = (state = '', action) => {
     case constants.SET_RATE:
       return {
         ...state,
-        rate: action.payload
-      }
+        rate: action.payload,
+      };
     case constants.SET_TO_CURRENCY:
       return {
         ...state,
@@ -14,13 +14,13 @@ const reducer = (state = '', action) => {
           ...state.to,
           currency: action.payload.currency,
           balance: action.payload.balance,
-        }
-      }
+        },
+      };
     case constants.SET_TO_BALANCE:
       return {
         ...state,
-        toBalance: action.payload
-      }
+        toBalance: action.payload,
+      };
     case constants.SET_FROM_CURRENCY:
       return {
         ...state,
@@ -28,23 +28,23 @@ const reducer = (state = '', action) => {
           ...state.from,
           currency: action.payload.currency,
           balance: action.payload.balance,
-        }
-      }
+        },
+      };
     case constants.SET_FROM_VALUE:
       return {
         ...state,
-        fromValue: action.payload
-      }
+        fromValue: action.payload,
+      };
     case constants.SET_TO_VALUE:
       return {
         ...state,
-        toValue: action.payload
-      }
+        toValue: action.payload,
+      };
     case constants.SET_FROM_BALANCE:
       return {
         ...state,
-        fromBalance: action.payload
-      }
+        fromBalance: action.payload,
+      };
     case constants.SWAP_CURRENCIES:
       return {
         ...state,
@@ -57,24 +57,33 @@ const reducer = (state = '', action) => {
           ...state.from,
           currency: action.payload.to.currency,
           balance: action.payload.to.balance,
-        }
-      }
+        },
+      };
     case constants.UPDATE_FROM_BALANCE:
       return {
         ...state,
         from: {
           ...state.from,
-          balance: action.payload.from - action.payload.to,
-        }
-      }
+          balance: action.payload.fromBalance,
+        },
+      };
     case constants.UPDATE_TO_BALANCE:
       return {
         ...state,
         to: {
           ...state.to,
-          balance: action.payload.from + action.payload.to,
-        }
-      }
+          balance: action.payload.toBalance,
+        },
+      };
+    case constants.UPDATE_STATEMENT:
+      return {
+        ...state,
+        statement: {
+          ...state.statement,
+          [action.payload.fromCurrency]: action.payload.fromBalance,
+          [action.payload.toCurrency]: action.payload.toBalance,
+        },
+      };
     default:
       return state;
   }

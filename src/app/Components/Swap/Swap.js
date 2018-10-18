@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import store from '../../../utils/store';
-import { swapCurrencies,setToValue, setFromValue } from '../../../utils/actions';
+import { swapCurrencies, setToValue, setFromValue } from '../../../utils/actions';
 import Button from './Swap.styles';
 
 const mapDispatchToProps = dispatch => ({
@@ -23,7 +23,7 @@ const ConnectedSwap = (props) => {
       props.setToValue(Number(props.fromValue * 1 / props.rate).toFixed(2));
     }
   };
-  return <Button onClick={onclick} />
+  return (<Button onClick={onclick} />);
 };
 
 ConnectedSwap.propTypes = {

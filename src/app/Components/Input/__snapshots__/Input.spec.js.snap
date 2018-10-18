@@ -2,15 +2,13 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-bdVaJa fZgsiK"
+  className="sc-bdVaJa hKAetY"
 >
-  <i
-    className="sc-bxivhb jqAmDQ"
-  >
+  <span>
     +
-  </i>
+  </span>
   <div
-    className="sc-bwzfXH lkPSlC"
+    className="sc-bwzfXH ecxpMR"
     width="40px"
   >
     <input

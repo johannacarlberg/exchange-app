@@ -8,16 +8,17 @@ export const SET_FROM_BALANCE = 'SET_FROM_BALANCE';
 export const SWAP_CURRENCIES = 'SWAP_CURRENCIES';
 export const UPDATE_FROM_BALANCE = 'UPDATE_FROM_BALANCE';
 export const UPDATE_TO_BALANCE = 'UPDATE_TO_BALANCE';
+export const UPDATE_STATEMENT = 'UPDATE_STATEMENT';
 
 export const POLL = '10000';
 
 export const CURRENCIES = [{
   code: 'GBP',
-  symbol: '\u00A3'
+  symbol: '\u00A3',
 }, {
   code: 'EUR',
-  symbol: '\u20AC'
+  symbol: '\u20AC',
 }, {
   code: 'USD',
-  symbol: '\u0024'
-}]
+  symbol: '\u0024',
+}];
