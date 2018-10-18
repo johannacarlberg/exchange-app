@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export class connectedExchange extends React.Component {
+export class ConnectedExchange extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,6 +87,10 @@ export class connectedExchange extends React.Component {
   }
 }
 
-const Exchange = connect(mapStateToProps, mapDispatchToProps)(connectedExchange);
+ConnectedExchange.propTypes = {
+  setRate: PropTypes.func.isRequired,
+};
+
+const Exchange = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchange);
 
 export default Exchange;

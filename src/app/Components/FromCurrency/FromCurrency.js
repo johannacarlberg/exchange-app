@@ -85,7 +85,6 @@ FromCurrencyConnected.defaultProps = {
   rate: 0,
 };
 
-
 const FromCurrency = connect(mapStateToProps, mapDispatchToProps)(FromCurrencyConnected);
 
 export default FromCurrency;
