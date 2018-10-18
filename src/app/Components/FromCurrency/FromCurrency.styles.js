@@ -24,4 +24,3 @@ export const SelectInputContainer = styled.div`
     margin-top: -5px;
   }
 `;
-

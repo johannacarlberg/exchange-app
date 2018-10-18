@@ -10,9 +10,7 @@ import Rate from '../Rate/Rate';
 import { POLL } from '../../../utils/constants';
 import { TopContainer, MiddleContainer, BottomContainer } from './Exchange.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -67,7 +65,7 @@ export class connectedExchange extends React.Component {
         return (
             <div>
               <TopContainer>
-              <FromCurrency from={this.props.state.from.currency} rate={this.props.state.rate} />
+              <FromCurrency rate={this.props.state.rate} />
               </TopContainer>
               <MiddleContainer>
               <Swap from={this.props.state.from.currency} to={this.props.state.to.currency} toValue={this.props.state.toValue} fromValue={this.props.state.fromValue} rate={this.props.state.rate} />
@@ -77,10 +75,8 @@ export class connectedExchange extends React.Component {
                   rate={this.props.state.rate}/>
               </MiddleContainer>
               <BottomContainer>
-                <ToCurrency to={this.props.state.to.currency} rate={this.props.state.rate} toValue={this.props.state.toValue} />
-                <ExchangeButton
-                  from={this.props.state.from.currency}
-                  to={this.props.state.to.currency} />
+                <ToCurrency rate={this.props.state.rate} toValue={this.props.state.toValue} />
+                <ExchangeButton />
               </BottomContainer>
             </div>
         )

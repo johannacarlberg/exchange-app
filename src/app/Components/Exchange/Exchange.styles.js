@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { WHITE, LIGHT_GRAY } from '../../../utils/styles.constants';
 
 export const TopContainer = styled.div`
-  background: ${ WHITE };
+  background: ${WHITE};
   margin: 0;
   height: 100px
   padding: 8px 16px;
@@ -17,7 +17,7 @@ export const MiddleContainer = styled.div`
 `;
 
 export const BottomContainer = styled.div`
-  background: ${ LIGHT_GRAY };
+  background: ${LIGHT_GRAY};
   margin: 0;
   padding: 21px 16px;
 `;

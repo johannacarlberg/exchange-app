@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 
 import store from '../../../utils/store';
 import { updateFromBalance, updateToBalance } from '../../../utils/actions';
-import { Button } from './ExchangeButton.styles';
+import Button from './ExchangeButton.styles';
 
-const mapStateToProps = state => {
-  return {state}
-};
+const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     updateFromBalance: balances => dispatch(updateFromBalance(balances)),
     updateToBalance: balances => dispatch(updateToBalance(balances)),
@@ -33,8 +31,7 @@ const ConnectedExchangeButton = (props) => {
 };
 
 
-ConnectedExchangeButton.propTypes = {    
-  from: PropTypes.string.isRequired
+ConnectedExchangeButton.propTypes = {
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);
