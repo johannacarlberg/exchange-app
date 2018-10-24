@@ -11,6 +11,7 @@ exports[`Snapshot - renders correctly 1`] = `
     <input
       className="sc-htpNat bUMdcJ"
       onChange={[MockFunction]}
+      onKeyDown={[MockFunction]}
       placeholder="0"
     />
   </div>
