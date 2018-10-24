@@ -32,7 +32,6 @@ const ConnectedToCurrency = (props) => {
   } = store.getState();
 
   const handleChange = (event) => {
-    console.log('to')
     const selectedValue = event.target.value;
     props.setToCurrency({
       currency: selectedValue,
@@ -49,11 +48,12 @@ const ConnectedToCurrency = (props) => {
   };
 
   const updateInputValue = (event) => {
-    console.log('to update')
-
     const inputValue = event.target.value;
-    props.setToValue(inputValue);
-    props.setFromValue(Number(inputValue * 1 / props.rate).toFixed(2));
+    const formattedInput = Number(inputValue);
+    if(!isNaN(formattedInput)){
+      props.setToValue(inputValue);
+      props.setFromValue(Number(formattedInput * 1 / props.rate).toFixed(2));
+    }
   };
 
   const currency = CURRENCIES.find(exchange => exchange.code === to.currency);

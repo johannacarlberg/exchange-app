@@ -12,14 +12,14 @@ const InputBox = ({ value, indicator, onChange }) => {
     <Container>
       {value && <span>{indicator}</span>}
       <InputContainer width={dynamicWidth}>
-        <Input type="text" pattern="[0-9.]*" onChange={onChange} value={value} placeholder="0" />
+        <Input onChange={onChange} value={value} placeholder="0" />
       </InputContainer>
     </Container>
   );
 };
 
 InputBox.defaultProps = {
-  value: null,
+  value: undefined,
 };
 
 InputBox.propTypes = {
