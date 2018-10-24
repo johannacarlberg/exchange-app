@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
   updateStatement: balances => dispatch(updateStatement(balances)),
 });
 
-const ConnectedExchangeButton = (props) => {
+export const ConnectedExchangeButton = (props) => {
   const {
     fromValue,
     toValue,
