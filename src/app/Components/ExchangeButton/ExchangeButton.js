@@ -46,7 +46,7 @@ const ConnectedExchangeButton = (props) => {
   }
 
   const insufficientCurrency = from.balance < fromValue;
-  const noAmount = !fromValue || fromValue <= 0;
+  const noAmount = !fromValue || fromValue < 0.1;
 
   return (
     <Button onClick={onClick} disabled={insufficientCurrency || noAmount}>

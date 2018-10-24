@@ -12,18 +12,18 @@ const InputBox = ({ value, indicator, onChange }) => {
     <Container>
       {value && <span>{indicator}</span>}
       <InputContainer width={dynamicWidth}>
-        <Input onChange={onChange} value={value} placeholder="0" />
+        <Input type="text" pattern="[0-9.]*" onChange={onChange} value={value} placeholder="0" />
       </InputContainer>
     </Container>
   );
 };
 
 InputBox.defaultProps = {
-  value: '',
+  value: null,
 };
 
 InputBox.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   indicator: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

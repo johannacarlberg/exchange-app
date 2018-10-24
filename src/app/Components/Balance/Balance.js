@@ -11,7 +11,6 @@ const Balance = ({ symbol, balance, insufficientCurrency }) => (
   </BalanceText>
 );
 
-
 Balance.propTypes = {
   symbol: PropTypes.string.isRequired,
   balance: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -21,4 +20,5 @@ Balance.propTypes = {
 Balance.defaultProps = {
   insufficientCurrency: false,
 };
+
 export default Balance;

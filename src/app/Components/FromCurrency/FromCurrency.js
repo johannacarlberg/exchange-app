@@ -14,6 +14,7 @@ import Input from '../Input/Input';
 import Select from '../Select/Select';
 import Balance from '../Balance/Balance';
 import { ExchangeInputsContainer } from '../../app.styles';
+import { InfoArea, MinimumAmount } from './FromCurrency.styles';
 
 const mapStateToProps = state => state;
 
@@ -53,11 +54,14 @@ const FromCurrencyConnected = (props) => {
 
   const updateInputValue = (event) => {
     const inputValue = event.target.value;
-    props.setFromValue(inputValue);
-    props.setToValue(Number(inputValue * props.rate).toFixed(2));
+    const formattedInput = Number(inputValue);
+    if(!isNaN(formattedInput)){
+      props.setFromValue(inputValue);
+      props.setToValue(Number(formattedInput * props.rate).toFixed(2));
+    }
   };
-
   const currency = CURRENCIES.find(exchange => exchange.code === from.currency);
+  const valueIsBelowMinimum = fromValue > 0.0 && fromValue < 0.1;
 
   return (
     <div>
@@ -65,11 +69,14 @@ const FromCurrencyConnected = (props) => {
         <Select onChange={handleChange} currency={from} />
         <Input value={fromValue} onChange={updateInputValue} indicator={'\u2212'} />
       </ExchangeInputsContainer>
-      <Balance
-        insufficientCurrency={from.balance < fromValue}
-        symbol={currency.symbol}
-        balance={Number(from.balance).toFixed(2)}
-      />
+      <InfoArea>
+        <Balance
+          insufficientCurrency={from.balance < fromValue}
+          symbol={currency.symbol}
+          balance={Number(from.balance).toFixed(2)}
+        />
+        <MinimumAmount isBelowMinimum={valueIsBelowMinimum}>Minimum amount is {currency.symbol}0.10</MinimumAmount>
+      </InfoArea>
     </div>
   );
 };
