@@ -52,14 +52,22 @@ const FromCurrencyConnected = (props) => {
     }
   };
 
-  const updateInputValue = (event) => {
-    const inputValue = event.target.value;
+  const validateInput = (inputValue) => {
     const formattedInput = Number(inputValue);
-    if(!isNaN(formattedInput)){
+    if(!isNaN(formattedInput)) {
       props.setFromValue(inputValue);
       props.setToValue(Number(formattedInput * props.rate).toFixed(2));
     }
   };
+
+  const keyPress = (event) => {
+    validateInput(event.target.value);
+  };
+
+  const updateInputValue = (event) => {
+    validateInput(event.target.value);
+  };
+
   const currency = CURRENCIES.find(exchange => exchange.code === from.currency);
   const valueIsBelowMinimum = fromValue > 0.0 && fromValue < 0.1;
 
@@ -67,7 +75,7 @@ const FromCurrencyConnected = (props) => {
     <div>
       <ExchangeInputsContainer>
         <Select onChange={handleChange} currency={from} />
-        <Input value={fromValue} onChange={updateInputValue} indicator={'\u2212'} />
+        <Input value={fromValue} onChange={updateInputValue} onKeyDown={keyPress} indicator={'\u2212'} />
       </ExchangeInputsContainer>
       <InfoArea>
         <Balance

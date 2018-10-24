@@ -47,13 +47,20 @@ const ConnectedToCurrency = (props) => {
     }
   };
 
-  const updateInputValue = (event) => {
-    const inputValue = event.target.value;
+  const validateInput = (inputValue) => {
     const formattedInput = Number(inputValue);
-    if(!isNaN(formattedInput)){
+    if(!isNaN(formattedInput)) {
       props.setToValue(inputValue);
       props.setFromValue(Number(formattedInput * 1 / props.rate).toFixed(2));
     }
+  };
+
+  const updateInputValue = (event) => {
+    validateInput(event.target.value);
+  };
+
+  const keyPress = (event) => {
+    validateInput(event.target.value);
   };
 
   const currency = CURRENCIES.find(exchange => exchange.code === to.currency);
@@ -62,7 +69,7 @@ const ConnectedToCurrency = (props) => {
     <div>
       <ExchangeInputsContainer>
         <Select onChange={handleChange} currency={to} />
-        <Input value={toValue} onChange={updateInputValue} indicator={'\u002B'} />
+        <Input value={toValue} onChange={updateInputValue} onKeyDown={keyPress} indicator={'\u002B'} />
       </ExchangeInputsContainer>
       <Balance symbol={currency.symbol} balance={to.balance} />
     </div>
