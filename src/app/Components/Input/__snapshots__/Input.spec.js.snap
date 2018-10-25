@@ -4,6 +4,7 @@ exports[`Snapshot - renders correctly 1`] = `
 <div
   className="sc-bdVaJa hKAetY"
 >
+  
   <div
     className="sc-bwzfXH hJUxOZ"
     width="20px"
@@ -13,6 +14,7 @@ exports[`Snapshot - renders correctly 1`] = `
       onChange={[MockFunction]}
       onKeyDown={[MockFunction]}
       placeholder="0"
+      value=""
     />
   </div>
 </div>

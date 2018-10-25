@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
   setToValue: toValue => dispatch(setToValue(toValue)),
 });
 
-const FromCurrencyConnected = (props) => {
+export const FromCurrencyConnected = (props) => {
   const {
     from,
     to,

@@ -19,11 +19,11 @@ const InputBox = ({ value, indicator, onChange, onKeyDown }) => {
 };
 
 InputBox.defaultProps = {
-  value: undefined,
+  value: '',
 };
 
 InputBox.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.string,
   indicator: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,

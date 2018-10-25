@@ -15,4 +15,6 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+Button.displayName = 'Button';
+
 export default Button;

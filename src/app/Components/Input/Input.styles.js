@@ -25,3 +25,5 @@ export const Input = styled.input`
   outline: none;
   color: ${DARK_GRAY};
 `;
+
+Input.displayName = 'Input';
