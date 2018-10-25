@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WHITE, LIGHT_GRAY } from '../../../utils/styles.constants';
+import { WHITE } from '../../../utils/styles.constants';
 
 export const TopContainer = styled.div`
   background: ${WHITE};

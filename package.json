@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "express": "^4.16.4",
+    "prop-types": "^15.6.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "^5.0.7",
@@ -62,7 +63,9 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest.config.js",
-    "transformIgnorePatterns": ["<rootDir>/node_modules/"],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
     "transform": {
       "^.+\\.(js|jsx)?$": "babel-jest"
     }
