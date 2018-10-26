@@ -16,7 +16,6 @@ const mapDispatchToProps = dispatch => ({
 
 export const ConnectedExchangeButton = (props) => {
   const {
-    fromValue,
     toValue,
     from,
     to,
@@ -24,7 +23,7 @@ export const ConnectedExchangeButton = (props) => {
 
   function onClick(e) {
     e.preventDefault();
-    const fromBalance = Number(from.balance) - Number(fromValue);
+    const fromBalance = Number(from.balance) - Number(props.fromValue);
     const toBalance = Number(to.balance) + Number(toValue);
 
     props.updateFromBalance({
@@ -45,8 +44,8 @@ export const ConnectedExchangeButton = (props) => {
     });
   }
 
-  const insufficientCurrency = from.balance < fromValue;
-  const noAmount = !fromValue || fromValue < 0.1;
+  const insufficientCurrency = from.balance < props.fromValue;
+  const noAmount = !props.fromValue || props.fromValue < 0.1;
 
   return (
     <Button onClick={onClick} disabled={insufficientCurrency || noAmount}>
@@ -59,6 +58,11 @@ ConnectedExchangeButton.propTypes = {
   updateToBalance: PropTypes.func.isRequired,
   updateFromBalance: PropTypes.func.isRequired,
   updateStatement: PropTypes.func.isRequired,
+  fromValue: PropTypes.string,
+};
+
+ConnectedExchangeButton.defaultProps = {
+  fromValue: undefined,
 };
 
 const ExchangeButton = connect(mapStateToProps, mapDispatchToProps)(ConnectedExchangeButton);

@@ -11,8 +11,8 @@ const LiveRates = styled.p`
   padding: 5px;
   border: 2px solid ${LIGHT_GRAY};
   &:before {
-    content: '\\21DD';
+    content: '\\21DD ';
   }
-`;
+  `;
 
 export default LiveRates;

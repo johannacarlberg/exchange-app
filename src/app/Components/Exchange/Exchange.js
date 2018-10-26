@@ -90,7 +90,9 @@ export class ConnectedExchange extends React.Component {
             toValue={this.props.state.toValue} />
           <ExchangeButton
             from={this.props.state.from.currency}
-            to={this.props.state.to.currency} />
+            to={this.props.state.to.currency}
+            fromValue={this.props.state.fromValue}
+          />
         </BottomContainer>
       </div>
     )
