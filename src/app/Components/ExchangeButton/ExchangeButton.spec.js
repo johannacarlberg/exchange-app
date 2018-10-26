@@ -50,7 +50,7 @@ describe('ExchangeButton', () => {
     });
   });
 
-  describe('enabled', () => {
+  describe('testing disabled/enabled', () => {
     let wrapper;
     it('button should be disabled when input is lower than 0.1', () => {
       wrapper = mount(<ConnectedExchangeButton {...props} store={store} fromValue="0.01" />);
@@ -60,7 +60,13 @@ describe('ExchangeButton', () => {
       expect(props.updateFromBalance.mock.calls.length).toBe(0);
     });
 
-    it('button should NOT be disabled when input ', () => {
+    it('button should be disabled when input is more than balance', () => {
+      wrapper = mount(<ConnectedExchangeButton {...props} store={store} fromValue="50" />);
+      const button = wrapper.find('button');
+      expect(button.props().disabled).toBe(true);
+    });
+
+    it('button should NOT be disabled when input is wihtin balance', () => {
       wrapper = mount(<ConnectedExchangeButton {...props} store={store} fromValue="12" />);
       const button = wrapper.find('button');
       expect(button.props().disabled).toBe(false);
@@ -68,10 +74,5 @@ describe('ExchangeButton', () => {
       expect(props.updateFromBalance.mock.calls.length).toBe(1);
     });
 
-    it('button should be disabled when input is more than balance', () => {
-      wrapper = mount(<ConnectedExchangeButton {...props} store={store} fromValue="50" />);
-      const button = wrapper.find('button');
-      expect(button.props().disabled).toBe(true);
-    });
   });
 });
